@@ -5,14 +5,29 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
+    <!-- 绑定插入文本内容 -->
     <div id="app">
       {{ message }}
     </div>
+
+    <!-- 绑定DOM元素属性 -->
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+      </span>
+    </div>
+
     <script type="text/javascript">
       var app = new Vue({
-        el: "#app",
+        el: '#app',
         data: {
-          message: "Hello Vue!"
+          message: 'Hello Vue!'
+        }
+      })
+      var app2 = new Vue({
+        el: '#app-2',
+        data: {
+          message: 'You loaded this page on ' + new Date()
         }
       })
     </script>
