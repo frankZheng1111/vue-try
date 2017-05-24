@@ -5,16 +5,21 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
-    <!-- 绑定插入文本内容 -->
+    <h5> 绑定插入文本内容:</h5>
     <div id="app">
       {{ message }}
     </div>
 
-    <!-- 绑定DOM元素属性 -->
+    <h5> 绑定DOM元素属性:</h5>
     <div id="app-2">
       <span v-bind:title="message">
         Hover your mouse over me for a few seconds to see my dynamically bound title!
       </span>
+    </div>
+
+    <h5>条件：</h5>
+    <div id="app-3">
+      <p v-if="seen">Now you see me</p>
     </div>
 
     <script type="text/javascript">
@@ -28,6 +33,12 @@
         el: '#app-2',
         data: {
           message: 'You loaded this page on ' + new Date()
+        }
+      })
+      var app3 = new Vue({
+        el: '#app-3',
+        data: {
+          seen: true
         }
       })
     </script>
