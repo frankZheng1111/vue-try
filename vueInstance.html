@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var data = { a: 1 }
+      var vm = new Vue({
+        data: data
+      })
+      // vue会代理并双向绑定data对象里的属性
+      console.log('vm.a === data.a', vm.a === data.a, vm.a, data.a)
+      data.a = 2
+      console.log('vm.a === data.a', vm.a === data.a, vm.a, data.a)
+      vm.a = 3
+      console.log('vm.a === data.a', vm.a === data.a, vm.a, data.a)
+    </script>
+  </body>
+</html>
