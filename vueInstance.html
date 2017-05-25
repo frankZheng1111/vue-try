@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
+    <div id="example"></div>
+    <div id="cycle"></div>
   <body>
     <script type="text/javascript">
       var data = { a: 1 }
@@ -16,6 +18,23 @@
       console.log('vm.a === data.a', vm.a === data.a, vm.a, data.a)
       vm.a = 3
       console.log('vm.a === data.a', vm.a === data.a, vm.a, data.a)
+
+      // 实例属性与方法
+      var data2 = { a: 1 }
+      var app = new Vue({
+        el: '#example',
+        data: data2
+      })
+      console.log('app.$data === data2', app.$data === data2, app.$data, data2)
+      console.log('app.$el === document.getElementById(\'example\')', app.$el === document.getElementById('example'))
+
+      // $watch 是一个实例方法
+      //
+      app.$watch('a', function (newVal, oldVal) {
+        console.log('new: ', newVal)
+        console.log('old: ', oldVal)
+      })
+      data2.a = 2;
     </script>
   </body>
 </html>
