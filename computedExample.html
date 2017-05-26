@@ -15,12 +15,16 @@
         data: {
           message: '123456789'
         },
+        // 针对依赖进行缓存，并非响应式, 依赖不变，计算属性不变
         computed: {
           reverseMessage: function() {
             return this.message.split('').reverse().join('')
           }
         }
       })
+      console.log('app.reverseMessage: ', app.reverseMessage);
+      app.message = 'abcdefg'
+      console.log('app.reverseMessage ', app.reverseMessage);
     </script>
   </body>
 </html>
