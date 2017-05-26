@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+    <div id="example">
+      <p>data: {{ message }}</p>
+      <p>reverseMessage: {{ reverseMessage }}</p>
+   </div>
+  <body>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#example',
+        data: {
+          message: '123456789'
+        },
+        computed: {
+          reverseMessage: function() {
+            return this.message.split('').reverse().join('')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
