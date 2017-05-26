@@ -19,12 +19,25 @@
         computed: {
           reverseMessage: function() {
             return this.message.split('').reverse().join('')
+          },
+          reverseMessage2: {
+            get: function() {
+              return this.message.split('').reverse().join('')
+            },
+            set: function(newValue) {
+              this.message = newValue.split('').reverse().join('')
+              return this.message
+            }
           }
         }
       })
       console.log('app.reverseMessage: ', app.reverseMessage);
       app.message = 'abcdefg'
-      console.log('app.reverseMessage ', app.reverseMessage);
+      console.log('app.reverseMessage: ', app.reverseMessage);
+
+      console.log('app.message: ', app.message);
+      app.reverseMessage2 = 'iehiehieh'
+      console.log('app.message: ', app.message);
     </script>
   </body>
 </html>
