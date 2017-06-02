@@ -14,6 +14,20 @@
       </template>
       <h5>遍历对象：</h5>
       <p v-for="(value, key) in object">{{ key }} - {{ value }}</p>
+      <h5>遍历整数：</h5>
+      <span v-for="n in 10">{{ n }}</span>
+    </div>
+    <h5>todo-list-example：</h5>
+    <div id="todo-list-example">
+      <input
+      v-model="newTodoText"
+      @keyup.enter="addNewTodo"
+      placeholder="Add a todo"
+      >
+      <ul>
+        <todo-item v-for="(todo, index) in todos" :title="todo" @remove="todos.splice(index, 1)"
+        ></todo-item>
+      </ul>
     </div>
 
     <script type="text/javascript">
@@ -30,6 +44,34 @@
           object: {
             key1: 'value1',
             key2: 'value2'
+          }
+        }
+      })
+
+      // todo-list-example
+      Vue.component('todo-item', {
+        template: '\
+          <li>\
+            {{ title }}\
+            <button @click="$emit(\'remove\')">X</button>\
+         </li>\
+        ',
+        props: ['title']
+      })
+      var todoList = new Vue({
+        el: '#todo-list-example',
+        data: {
+          newTodoText: '',
+          todos: [
+            'Do the dishes',
+            'Take out the trash',
+            'Mow the lawn'
+          ]
+        },
+        methods: {
+          addNewTodo: function () {
+            this.todos.push(this.newTodoText)
+            this.newTodoText = ''
           }
         }
       })
