@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h5>列表：</h5>
+    <div id="app-1">
+      <template v-for="(item, index) in items">
+        <p>{{ parentMessage }}</p>
+        <p>{{ index }}</p>
+        <p>{{ item.message }}</p>
+      </template>
+    </div>
+
+    <script type="text/javascript">
+      // 列表base
+      //
+      var app1 = new Vue({
+        el: '#app-1',
+        data: {
+          parentMessage: 'Parent',
+          items: [
+            { message: 'foo' },
+            { message: 'bar' }
+          ]
+        }
+      })
+    </script>
+  </body>
+</html>
