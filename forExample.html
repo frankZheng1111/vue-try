@@ -12,6 +12,8 @@
         <p>{{ index }}</p>
         <p>{{ item.message }}</p>
       </template>
+      <h5>遍历对象：</h5>
+      <p v-for="(value, key) in object">{{ key }} - {{ value }}</p>
     </div>
 
     <script type="text/javascript">
@@ -24,7 +26,11 @@
           items: [
             { message: 'foo' },
             { message: 'bar' }
-          ]
+          ],
+          object: {
+            key1: 'value1',
+            key2: 'value2'
+          }
         }
       })
     </script>
