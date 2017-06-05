@@ -7,10 +7,24 @@
   <body>
     <h5>表单绑定：</h5>
     <div id="app-1">
+      <h5>单行输入：</h5>
       <input v-model="line"></input>
       <p>{{ line }}</p>
+      <h5>多行输入：</h5>
       <textarea v-model="multiLine"></textarea>
       <p style="white-space: pre">{{ multiLine }}</p>
+      <h5>checkbox：</h5>
+      <input v-model="checked" id="checkbox" type="checkbox"></input>
+      <label for="checkbox">{{ checked }}</label>
+      <h5>checkbox(multi)：</h5>
+      <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+      <label for="jack">Jack</label>
+      <input type="checkbox" id="john" value="John" v-model="checkedNames">
+      <label for="john">John</label>
+      <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+      <label for="mike">Mike</label>
+      <br>
+      <span>Checked names: {{ checkedNames }}</span>
     </div>
 
     <script type="text/javascript">
@@ -20,7 +34,9 @@
         el: '#app-1',
         data: {
           line: '',
-          multiLine: ''
+          multiLine: '',
+          checked: true,
+          checkedNames: []
         }
       })
     </script>
