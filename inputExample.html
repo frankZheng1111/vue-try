@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h5>表单绑定：</h5>
+    <div id="app-1">
+      <input v-model="line"></input>
+      <p>{{ line }}</p>
+      <textarea v-model="multiLine"></textarea>
+      <p style="white-space: pre">{{ multiLine }}</p>
+    </div>
+
+    <script type="text/javascript">
+      // 条件base
+      //
+      var app1 = new Vue({
+        el: '#app-1',
+        data: {
+          line: '',
+          multiLine: ''
+        }
+      })
+    </script>
+  </body>
+</html>
