@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h5>监听事件：</h5>
+    <div id="app-1">
+      <button @click="addCounter">增加 1</button>
+      <p>这个按钮被点击了{{ counter }}次</p>
+    </div>
+
+    <script type="text/javascript">
+      // 条件base
+      //
+      var app1 = new Vue({
+        el: '#app-1',
+        data: {
+          counter: 0
+        },
+        methods: {
+          addCounter: function() {
+            this.counter++;
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
