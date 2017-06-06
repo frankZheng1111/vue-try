@@ -12,9 +12,10 @@
       <my-component @increment="incrementTotal"></my-component>
       <my-component @increment="incrementTotal"></my-component>
       <br>
-      <input v-model="myMessage"></input>
+      <input v-model="myMessage">{{ myMessage }}</input>
       <br>
-      <my-child-component :message="myMessage"></my-child-component>
+      <!-- sync 为双向绑定 -->
+      <my-child-component :message.sync="myMessage"></my-child-component>
     </div>
 
     <script type="text/javascript">
@@ -34,16 +35,21 @@
         },
         methods: {
           addCounter: function() {
-            this.counter += 1;
-            this.$emit('increment');
+            this.counter += 1
+            this.$emit('increment')
           }
         }
       })
 
       var ChildComponent = {
-        template: '<div>{{ message }}</div>',
+template: '<div><button @click="changeMessage">修改父组件值(语法糖)</button> <div>{{ message }}</div></div>',
         props: {
           message: String
+        },
+        methods: {
+          changeMessage: function() {
+            this.$emit('update:message', 'Update Prop Message')
+          }
         }
       }
       var app1 = new Vue({
@@ -57,7 +63,7 @@
         },
         methods: {
           incrementTotal: function() {
-            this.num++;
+            this.num++
           }
         }
       })
