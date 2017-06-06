@@ -25,6 +25,28 @@
       <label for="mike">Mike</label>
       <br>
       <span>Checked names: {{ checkedNames }}</span>
+      <h5>radio buttons(multi)：</h5>
+      <input type="radio" id="one" value="one" v-model="picked">
+      <label for="one">one</label>
+      <br>
+      <input type="radio" id="two" value="two" v-model="picked">
+      <label for="two">two</label>
+      <br>
+      <span>picked: {{ picked }}</span>
+      <h5>select(single)：</h5>
+      <select v-model="singleSelected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ singleSelected }}</span>
+      <h5>select(multi)：</h5>
+      <select v-model="multiSelected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ multiSelected }}</span>
     </div>
 
     <script type="text/javascript">
@@ -36,7 +58,10 @@
           line: '',
           multiLine: '',
           checked: true,
-          checkedNames: []
+          checkedNames: [],
+          picked: null,
+          singleSelected: null,
+          multiSelected: []
         }
       })
     </script>
