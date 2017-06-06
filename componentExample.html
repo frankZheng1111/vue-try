@@ -7,9 +7,10 @@
   <body>
     <h5>组件：</h5>
     <div id="app-1">
-      <my-component></my-component>
-      <my-component></my-component>
-      <my-component></my-component>
+      <p>{{ num }}</p>
+      <my-component @increment="incrementTotal"></my-component>
+      <my-component @increment="incrementTotal"></my-component>
+      <my-component @increment="incrementTotal"></my-component>
       <br>
       <input v-model="myMessage"></input>
       <br>
@@ -34,6 +35,7 @@
         methods: {
           addCounter: function() {
             this.counter += 1;
+            this.$emit('increment');
           }
         }
       })
@@ -41,9 +43,24 @@
       var ChildComponent = {
         template: '<div>{{ message }}</div>',
         props: {
-          message: Number
+          message: String
         }
       }
+      var app1 = new Vue({
+        el: '#app-1',
+        components: {
+          'my-child-component': ChildComponent
+        },
+        data: {
+          myMessage: '',
+          num: 0
+        },
+        methods: {
+          incrementTotal: function() {
+            this.num++;
+          }
+        }
+      })
       // 范例
       Vue.component('example', {
         props: {
@@ -74,15 +91,6 @@
               return value > 10
             }
           }
-        }
-      })
-      var app1 = new Vue({
-        el: '#app-1',
-        components: {
-          'my-child-component': ChildComponent
-        },
-        data: {
-          myMessage: ''
         }
       })
     </script>
