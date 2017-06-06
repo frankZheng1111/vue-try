@@ -10,7 +10,7 @@
       <my-component></my-component>
       <my-component></my-component>
       <my-component></my-component>
-      <my-child-component></my-child-component>
+      <my-child-component message="Hello!"></my-child-component>
     </div>
 
     <script type="text/javascript">
@@ -36,7 +36,9 @@
       })
 
       var ChildComponent = {
-        template: '<div>A custom child component</div>'
+          template: '<div>{{ message }}</div>',
+          props: ['message']
+
       }
       var app1 = new Vue({
         el: '#app-1',
