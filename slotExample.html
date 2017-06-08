@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h5>slot：</h5>
+    <div id="app-1">
+      <child>
+        <p>这是一些初始内容</p>
+        <p>这是更多初始内容</p>
+      </child>
+    </div>
+
+    <script type="text/javascript">
+      Vue.component('child', {
+        template: '<div>\
+          <h2>我是子组件标题</h2>\
+          <slot>\
+            只有在没有要分发的内容才会显示。\
+          </slot>\
+        </div>'
+      });
+      // 条件base
+      //
+      var app1 = new Vue({
+        el: '#app-1',
+        data: {
+        }
+      })
+    </script>
+  </body>
+</html>
