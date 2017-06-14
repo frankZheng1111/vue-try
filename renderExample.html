@@ -13,6 +13,13 @@
       <anchored-heading :level="3">hello world</anchored-heading>
       <anchored-heading :level="4">hello world</anchored-heading>
     </div>
+    <!-- 好的写法 -->
+    <div id="app-good">
+      <anchored-heading-good :level="1">hello world</anchored-heading-good>
+      <anchored-heading-good :level="2">hello world</anchored-heading-good>
+      <anchored-heading-good :level="3">hello world</anchored-heading-good>
+      <anchored-heading-good :level="4">hello world</anchored-heading-good>
+    </div>
     <script type="text/x-template" id="anchored-heading-template">
       <div>
         <h1 v-if="level === 1"><slot></slot></h1>
@@ -31,8 +38,26 @@
           }
         }
       })
+      Vue.component('anchored-heading-good', {
+        render: function(createElement) {
+          return createElement(
+            'h' + this.level, // tag name 标签名称
+            this.$slots.default // 子组件的阵列
+          )
+        },
+        props: {
+          level: {
+            type: Number,
+            required: true
+          }
+        }
+      })
       var appBad = new Vue({
         el: '#app-bad',
+        data: {}
+      })
+      var appGood = new Vue({
+        el: '#app-good',
         data: {}
       })
     </script>
