@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h5>render函数：</h5>
+    <!-- 不好的写法 -->
+    <div id="app-bad">
+      <anchored-heading :level="1">hello world</anchored-heading>
+      <anchored-heading :level="2">hello world</anchored-heading>
+      <anchored-heading :level="3">hello world</anchored-heading>
+      <anchored-heading :level="4">hello world</anchored-heading>
+    </div>
+    <script type="text/x-template" id="anchored-heading-template">
+      <div>
+        <h1 v-if="level === 1"><slot></slot></h1>
+        <h2 v-if="level === 2"><slot></slot></h2>
+        <h3 v-if="level === 3"><slot></slot></h3>
+        <h4 v-if="level === 4"><slot></slot></h4>
+      </div>
+    </script>
+    <script type="text/javascript">
+      Vue.component('anchored-heading', {
+        template: '#anchored-heading-template',
+        props: {
+          level: {
+            type: Number,
+            required: true
+          }
+        }
+      })
+      var appBad = new Vue({
+        el: '#app-bad',
+        data: {}
+      })
+    </script>
+  </body>
+</html>
