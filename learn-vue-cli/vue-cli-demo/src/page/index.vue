@@ -7,19 +7,30 @@
   </div>
 </template>
 <script>
+import * as api from '../api'
+
 export default {
   data() {
     return {
       lists: [
-        {
-          id: 1,
-          title: "test title1"
-        },
-        {
-          id: 2,
-          title: "test title2"
-        }
+        // {
+        //   id: 1,
+        //   title: "test title1"
+        // },
+        // {
+        //   id: 2,
+        //   title: "test title2"
+        // }
       ]
+    }
+  },
+  created() {
+    this.initList();
+  },
+  methods: {
+    async initList() {
+      let { data: { data: topics } } = await api.getListData()
+      this.lists.push(...topics);
     }
   }
 }
