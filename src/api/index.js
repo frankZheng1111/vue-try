@@ -13,7 +13,6 @@ export function getListData({ page = 1, limit = 30, tab } = {}) {
     limit: limit
   }
   if (tab) { queryParams.tab = tab }
-  console.log(queryParams);
   return axios({
     method: 'get',
     url: '/topics',

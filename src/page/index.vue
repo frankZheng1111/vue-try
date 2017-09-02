@@ -2,7 +2,7 @@
   <div>
     <h1 class='logo'>Cnodejs Api Test</h1>
     <ul class='list'>
-      <li v-for="item in lists" v-text="item.title"></li>
+      <li v-for="topic in topics" v-text="topic.title"></li>
     </ul>
   </div>
 </template>
@@ -12,26 +12,22 @@ import * as api from '../api'
 export default {
   data() {
     return {
-      lists: [
-        // {
-        //   id: 1,
-        //   title: "test title1"
-        // },
-        // {
-        //   id: 2,
-        //   title: "test title2"
-        // }
+      topics: [
       ]
     }
   },
   created() {
-    this.initList();
+    this.initTopicsList();
   },
   methods: {
-    async initList() {
+    async initTopicsList() {
       let { data: { data: topics } } = await api.getListData()
-      this.lists.push(...topics);
+      this.topics.push(...topics);
     }
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../style/style";
+</style>
