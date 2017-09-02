@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     async initTopicsList() {
-      let { data: { data: topics } } = await api.getListData()
+      let { data: { data: topics } } = await api.getTopics()
       this.topics.push(...topics);
     }
   }
