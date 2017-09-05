@@ -46,3 +46,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../style/page/home";
+</style>

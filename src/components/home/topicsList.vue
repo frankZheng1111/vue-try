@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../style/style";
+  @import "../../style/components/home/topicsList";
 </style>

@@ -1,10 +1,7 @@
 <template>
-  <router-view
-    class="view"
-    keep-alive
-    transition
-    transition-mode="out-in">
-  </router-view>
+  <div class='container'>
+    <router-view class='view' keep-alive transition transition-mode='out-in'> </router-view>
+  </div>
 </template>
 
 <script>
@@ -13,4 +10,8 @@ export default {
   components: {}
 }
 </script>
+
+<style lang="scss">
+  @import "./style/app";
+</style>
 
