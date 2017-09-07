@@ -1,9 +1,8 @@
 <template>
   <div>
     <h1 class='logo'>Cnodejs Api Test</h1>
-    <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore" :auto-fill="false">
-      <topics-list :topics="topics"></topics-list>
-    </mt-loadmore>
+    <topics-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topics-list>
+    <div class='loading-placeholder'><p>加载中...</p></div>
   </div>
 </template>
 <script>
@@ -11,14 +10,14 @@ import Vue from 'vue'
 import topicsList from '../components/home/topicsList'
 import * as api from '../api'
 
-import { Loadmore } from 'mint-ui';
-Vue.component(Loadmore.name, Loadmore);
+import { InfiniteScroll } from 'mint-ui'
+Vue.use(InfiniteScroll)
 
 export default {
   data() {
     return {
-      allLoaded: false,
       page: 1,
+      loading: false,
       topics: [
       ]
     }
@@ -33,10 +32,11 @@ export default {
   },
 
   methods: {
-    async loadBottom() {
+    async loadMore() {
+      this.loading = true
       this.page++
       await this.getTopics({ page: this.page })
-      this.$refs.loadmore.onBottomLoaded()
+      this.loading = false
     },
     async getTopics({ page = 1 } = {}) {
       let { data: { data: topics } } = await api.getTopics({ page: page })

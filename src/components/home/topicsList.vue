@@ -1,9 +1,14 @@
 <template>
-  <ul class='list'>
+  <ul class='list'
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="loading"
+      infinite-scroll-immediate-check="fales"
+      infinite-scroll-distance="100">
     <li v-for="topic in topics" v-text="topic.title"></li>
   </ul>
 </template>
 <script>
+import Vue from 'vue'
 
 export default {
   data() {
@@ -11,7 +16,13 @@ export default {
     }
   },
 
-  props: [ 'topics' ]
+  props: [ 'topics', 'loading' ],
+
+  methods: {
+    loadMore() {
+      this.$emit('loadMore')
+    }
+  }
 }
 </script>
 
