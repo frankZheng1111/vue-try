@@ -5,11 +5,13 @@ import home from '../page/home.vue'
 import content from '../page/content.vue'
 
 Vue.use(Router)
+// Vue.prototype.$router = '123'
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
+      name: 'home',
       component: home
     },
     {

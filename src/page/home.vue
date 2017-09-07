@@ -43,6 +43,7 @@ export default {
     async changeTab(tab) {
       this.topics = []
       this.tab = tab
+      this.$router.push({ name: 'home', query: { tab: tab }})
       await this.getTopics({ tab: tab })
     },
 
