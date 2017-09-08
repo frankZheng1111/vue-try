@@ -5,6 +5,7 @@
       infinite-scroll-immediate-check="fales"
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id">
+      <img class="avatar avatar-small" :src="topic.author.avatar_url"><img>
       <mt-badge size="normal" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
       <div v-text="topic.title"></div>
     </li>
