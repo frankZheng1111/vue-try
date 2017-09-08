@@ -8,11 +8,12 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 
 export function getTopics({ page = 1, limit = 30, tab } = {}) {
+  const VALID_TABS = ['ask', 'share', 'job', 'good', 'dev'];
   let queryParams = {
     page: page,
     limit: limit
   }
-  if (tab) { queryParams.tab = tab }
+  if (tab && VALID_TABS.includes(tab)) { queryParams.tab = tab }
   return axios({
     method: 'get',
     url: '/topics',
