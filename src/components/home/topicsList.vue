@@ -5,9 +5,18 @@
       infinite-scroll-immediate-check="fales"
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id">
-      <img class="avatar avatar-small" :src="topic.author.avatar_url"><img>
-      <mt-badge size="normal" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
-      <div v-text="topic.title"></div>
+      <span>
+        <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"><img>
+      </span>
+      <div class="topic-title position">
+        <mt-badge size="normal" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
+        <div class="topic-title-text position" v-text="topic.title"></div>
+      </div>
+      <div class="position pull-right">
+        <span class="topic-count reply-count" v-text="topic.reply_count"></span>
+        <span class="topic-count" >/</span>
+        <span class="topic-count visit-count" v-text="topic.visit_count"></span>
+      </div>
     </li>
   </ul>
 </template>
