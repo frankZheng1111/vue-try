@@ -46,7 +46,8 @@ export default {
     async changeTab(tab) {
       this.topics = []
       this.tab = tab
-      this.$router.push({ name: 'home', query: { tab: tab }})
+      // tab为''时不显示url中的query参数
+      this.$router.push({ name: 'home', query: { tab: tab || undefined }})
       await this.getTopics({ tab: tab })
     },
 
