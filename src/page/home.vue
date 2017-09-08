@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class='logo'>Cnodejs Api Test</h1>
-    <topics-tab-bar @changeTab="changeTab"></topics-tab-bar>
+    <topics-tab-bar :selectedTab="topicsTab" @changeTab="changeTab"></topics-tab-bar>
     <topics-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topics-list>
     <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
@@ -15,12 +15,11 @@ import * as api from '../api'
 import { Spinner } from 'mint-ui'
 Vue.component(Spinner.name, Spinner)
 
-
 export default {
   data() {
     return {
       page: 1,
-      topicsTab: '',
+      topicsTab: this.$route.query.tab || '',
       loading: false,
       topics: [
       ]
@@ -33,7 +32,7 @@ export default {
   },
 
   created() {
-    this.getTopics()
+    this.getTopics({ page: this.page, tab: this.topicsTab })
   },
 
   methods: {

@@ -14,7 +14,7 @@ Vue.component(TabItem.name, TabItem);
 export default {
   data() {
     return {
-      selected: '',
+      selected: this.selectedTab || '',
       tabs: ['', 'ask', 'share', 'job', 'good', 'dev'],
       tabTexts: {
         '': '全部',
@@ -26,6 +26,7 @@ export default {
       }
     }
   },
+  props: ['selectedTab'],
 
   methods: {
     tabSelected() {
