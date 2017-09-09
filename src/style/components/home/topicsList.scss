@@ -1,18 +1,47 @@
 @import '../../common/color';
 
 .list {
-  line-height: 2;
   li {
+    .avatar.avatar-small {
+      width: 100%;
+      -moz-border-radius: 100px;
+      -webkit-border-radius: 100px;
+    }
     border-bottom: 1px solid #ddd;
+    line-height: 2;
+    list-style: none;
+    .user-info, .topic-title, .topic-count-tag {
+      display: inline-block;
+    }
+    .user-name { text-align: center; }
+    .user-info {
+      width: 10%;
+      margin: 10px;
+    }
+    .topic-title {
+      width: 75%;
+      margin-top: -10%;
+      vertical-align: middle;
+     }
+    .topic-count-tag {
+      float: right;
+    }
     .topic-count {
-      font-size: 1.4rem;
+      font-size: 1.0rem;
       font-weight: 600;
     }
     .topic-title {
-      height: 4rem
+      span {
+        float: left;
+        margin: 10px 10px
+      }
     }
     .topic-title-text {
-      line-height: 4rem;
+      display:block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      font-size: 2.0rem;
     }
     .topic-count.reply-count {
       font-weight: 900;

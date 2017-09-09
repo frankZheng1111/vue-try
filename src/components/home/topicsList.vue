@@ -4,15 +4,16 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check="fales"
       infinite-scroll-distance="100">
-    <li v-for="topic in topics" :key="topic.id" :id="topic.id">
-      <span>
-        <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"><img>
-      </span>
-      <div class="topic-title position">
-        <mt-badge size="normal" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
+    <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
+      <div class="user-info">
+        <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
+        <div class="user-name" v-text="topic.author.loginname" ></div>
+      </div>
+      <div class="topic-title">
+        <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
         <div class="topic-title-text position" v-text="topic.title"></div>
       </div>
-      <div class="position pull-right">
+      <div class="topic-count-tag">
         <span class="topic-count reply-count" v-text="topic.reply_count"></span>
         <span class="topic-count" >/</span>
         <span class="topic-count visit-count" v-text="topic.visit_count"></span>
