@@ -6,11 +6,11 @@
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
       <div class="user-info">
+        <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
         <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
         <div class="user-name" v-text="topic.author.loginname" ></div>
       </div>
       <div class="topic-title">
-        <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
         <div class="topic-title-text position" v-text="topic.title"></div>
       </div>
       <div class="topic-count-tag">

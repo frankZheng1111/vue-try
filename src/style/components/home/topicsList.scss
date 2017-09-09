@@ -10,18 +10,28 @@
     border-bottom: 1px solid #ddd;
     line-height: 2;
     list-style: none;
+    margin-bottom: 30px;
     .user-info, .topic-title, .topic-count-tag {
       display: inline-block;
     }
     .user-name { text-align: center; }
     .user-info {
-      width: 10%;
-      margin: 10px;
+      width: 8%;
+      margin: 10px 20px 10px 0px;
+      float: left;
+      span {
+        width: 75%;
+        margin-bottom: 10px;
+      }
+      .user-name {
+        display:block;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
     }
     .topic-title {
-      width: 75%;
-      margin-top: -10%;
-      vertical-align: middle;
+      width: 70%;
      }
     .topic-count-tag {
       float: right;
@@ -31,17 +41,17 @@
       font-weight: 600;
     }
     .topic-title {
-      span {
-        float: left;
-        margin: 10px 10px
-      }
+      height: 180px;
     }
     .topic-title-text {
+      color: #2c3e50;
       display:block;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      font-size: 2.0rem;
+      font-size: 2.7rem;
+      font-weight: 900;
+      margin-top: -10px;
     }
     .topic-count.reply-count {
       font-weight: 900;
