@@ -1,61 +1,52 @@
 @import '../../common/color';
 
 .list {
+  padding: 0;
   li {
     .avatar.avatar-small {
-      width: 100%;
-      -moz-border-radius: 100px;
-      -webkit-border-radius: 100px;
+      float: left;
+      width: 100px;
+      height: 100px;
+      margin: -10px 30px 10px 10px;
+      border: 1px solid #f3f3f3;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
     }
     border-bottom: 1px solid #ddd;
-    line-height: 2;
+    height: 120px;
+    padding: 2% 6% 6% 6%;
     list-style: none;
-    margin-bottom: 30px;
-    .user-info, .topic-title, .topic-count-tag {
-      display: inline-block;
-    }
-    .user-name { text-align: center; }
-    .user-info {
-      width: 8%;
-      margin: 10px 20px 10px 0px;
-      float: left;
+    h3 {
+      margin: 0;
       span {
-        width: 75%;
-        margin-bottom: 10px;
+        float: left;
+        margin: 1% 6% 0 2%;
+        width: 7%;
+        max-width: 50px;
       }
-      .user-name {
+      .topic-title {
+        font-size: 2rem;
         display:block;
+        color: $purple;
         white-space:nowrap;
         overflow:hidden;
         text-overflow:ellipsis;
       }
     }
-    .topic-title {
-      width: 70%;
-     }
-    .topic-count-tag {
-      float: right;
-    }
-    .topic-count {
-      font-size: 1.0rem;
-      font-weight: 600;
-    }
-    .topic-title {
-      height: 180px;
-    }
-    .topic-title-text {
-      color: #2c3e50;
-      display:block;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      font-size: 2.7rem;
-      font-weight: 900;
-      margin-top: -10px;
-    }
     .topic-count.reply-count {
-      font-weight: 900;
       color: $blue;
+    }
+    .detail-info {
+      display: block;
+      color: $deep-blue;
+      font-size: 1.5rem;
+      p {
+        .topic-count, .last-reply { float: right; }
+        .topic-reply-count {
+          color: $blue;
+        }
+        margin: 2%;
+      }
     }
   }
 }

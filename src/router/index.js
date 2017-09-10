@@ -5,7 +5,6 @@ import home from '../page/home.vue'
 import content from '../page/content.vue'
 
 Vue.use(Router)
-// Vue.prototype.$router = '123'
 
 export default new Router({
   routes: [
@@ -22,7 +21,7 @@ export default new Router({
       // name属性可以在后续使用这条路径规则的时候，直接引用。
       //
       path: '/content',
-      name: 'content',
+      name: 'topic',
       component: content
     },
     { path: '*', redirect: '/home' }

@@ -5,19 +5,28 @@
       infinite-scroll-immediate-check="fales"
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
-      <div class="user-info">
-        <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
-        <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
-        <div class="user-name" v-text="topic.author.loginname" ></div>
-      </div>
-      <div class="topic-title">
-        <div class="topic-title-text position" v-text="topic.title"></div>
-      </div>
-      <div class="topic-count-tag">
-        <span class="topic-count reply-count" v-text="topic.reply_count"></span>
-        <span class="topic-count" >/</span>
-        <span class="topic-count visit-count" v-text="topic.visit_count"></span>
-      </div>
+      <router-link :to="{ name: 'topic' }">
+        <h3 class="topic-title">
+          <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
+          <div class="topic-title" v-text="topic.title"></div>
+        </h3>
+        <div class="topic-detail-info">
+          <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
+          <div class="detail-info">
+            <p>
+              <span class="author-name" v-text="topic.author.loginname" ></span>
+              <span class="topic-count">
+                <b class="topic-reply-count" v-text="topic.reply_count"></b>
+                {{ `/ ${topic.visit_count}` }}
+              </span>
+            </p>
+            <p>
+              <time class="last-reply">1个月前</time>
+              <time>2个月前</time>
+            </p>
+          </div>
+        </div>
+      </router-link>
     </li>
   </ul>
 </template>
