@@ -4,7 +4,6 @@
   padding: 0;
   li {
     .avatar.avatar-small {
-      float: left;
       width: 100px;
       height: 100px;
       margin: -10px 30px 10px 10px;
@@ -41,7 +40,6 @@
       color: $deep-blue;
       font-size: 1.5rem;
       p {
-        .topic-count, .last-reply { float: right; }
         .topic-reply-count {
           color: $blue;
         }
