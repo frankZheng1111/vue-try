@@ -21,3 +21,12 @@ export function getTopics({ page = 1, limit = 20, tab } = {}) {
   })
 }
 
+export function getTopicById(id, { accessToken = null } = {}) {
+  let queryParams = {}
+  if (accessToken) { queryParams.accesstoken = accessToken }
+  return axios({
+    method: 'get',
+    url: `/topic/${id}`,
+    params: queryParams
+  })
+}
