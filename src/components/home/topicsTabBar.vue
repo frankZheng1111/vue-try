@@ -1,15 +1,18 @@
 <template>
+  <div>
+  <mt-header fixed :title="tabTexts[selected]"></mt-header>
   <mt-navbar v-model="selected">
     <mt-tab-item v-for="tab in tabs" :id="tab" :key="tab" v-text="tabTexts[tab]" @click.native="tabSelected">
     </mt-tab-item>
   </mt-navbar>
-
+  </div>
 </template>
 <script>
 import Vue from 'vue'
-import { Navbar, TabItem } from 'mint-ui'
+import { Header, Navbar, TabItem } from 'mint-ui'
 import TAB_TEXTS from '../../config/tabTexts'
 
+Vue.component(Header.name, Header);
 Vue.component(Navbar.name, Navbar)
 Vue.component(TabItem.name, TabItem)
 
