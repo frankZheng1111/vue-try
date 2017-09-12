@@ -7,7 +7,7 @@ axios.defaults.baseURL = API_URL
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 
-export function getTopics({ page = 1, limit = 30, tab } = {}) {
+export function getTopics({ page = 1, limit = 20, tab } = {}) {
   const VALID_TABS = ['ask', 'share', 'job', 'good', 'dev'];
   let queryParams = {
     page: page,
