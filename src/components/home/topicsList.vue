@@ -21,8 +21,8 @@
               </span>
             </p>
             <p>
-              <time>1个月前</time>
-              <time class="pull-right">2个月前</time>
+            <time>{{ timeFromNow(topic.create_at) }}</time>
+            <time class="pull-right">{{ timeFromNow(topic.last_reply_at) }}</time>
             </p>
           </div>
         </div>
@@ -34,6 +34,7 @@
 import Vue from 'vue'
 import { InfiniteScroll, Badge } from 'mint-ui'
 import TAB_TEXTS from '../../config/tabTexts'
+import { TimeUtil } from '../../libs/utils.js'
 
 Vue.component(Badge.name, Badge);
 Vue.use(InfiniteScroll)
@@ -70,8 +71,13 @@ export default {
       if (topic.tab) { return TAG_COLORS[topic.tab] }
       return TAG_COLORS[colorKey]
     },
+
     loadMore() {
       this.$emit('loadMore')
+    },
+
+    timeFromNow(time) {
+      return new TimeUtil(time).timeFromNow
     }
   }
 }

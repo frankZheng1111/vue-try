@@ -61,5 +61,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../style/page/home";
+  @import "../style/views/home";
 </style>
