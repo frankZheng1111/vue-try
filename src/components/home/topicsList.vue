@@ -5,7 +5,7 @@
       infinite-scroll-immediate-check="fales"
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
-      <router-link :to="{ name: 'topic' }">
+      <router-link :to="{ name: 'topic', params: { id: topic.id } }">
         <h3 class="topic-title">
           <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
           <div class="topic-title" v-text="topic.title"></div>

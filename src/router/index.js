@@ -1,29 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import home from '../views/home.vue'
-import content from '../views/content.vue'
+import topics from '../views/topics.vue'
+import topic from '../views/topic.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/home',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/',
-      redirect: '/home'
+      path: '/topics',
+      name: 'topics',
+      component: topics
     },
     {
       // name属性可以在后续使用这条路径规则的时候，直接引用。
       //
-      path: '/content',
+      path: '/topic/:id',
       name: 'topic',
-      component: content
+      component: topic
     },
-    { path: '*', redirect: '/home' }
+    { path: '*', redirect: '/topics' }
   ]
 })
