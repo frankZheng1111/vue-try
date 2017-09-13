@@ -1,13 +1,24 @@
 <template>
   <div class='container'>
+    <header-bar :selectedTab="topicsTab"></header-bar>
     <router-view class='view' keep-alive transition transition-mode='out-in'> </router-view>
   </div>
 </template>
 
 <script>
+import headerBar from './components/app/headerBar'
+
 export default {
   name: 'app',
-  components: {}
+  data() {
+    return {
+      topicsTab: this.$route.query.tab || '',
+    }
+  },
+
+  components: {
+    'header-bar': headerBar
+  }
 }
 </script>
 
