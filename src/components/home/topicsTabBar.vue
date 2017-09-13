@@ -35,5 +35,4 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../style/components/home/topicsTabBar";
 </style>
