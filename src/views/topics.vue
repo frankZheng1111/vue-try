@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class='logo'>Cnodejs Api Test</h1>
     <topics-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topics-list>
     <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
