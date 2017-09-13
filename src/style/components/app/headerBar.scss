@@ -1,7 +1,26 @@
 header.topic-header {
   font-size: 50px;
   padding: 6% 10px;
+  span {
+    font-size: 30px;
+    padding: 40px;
+  }
 }
 
+.sidebar.show {
+  transform: translateX(400px);
+}
 .sidebar {
+  position: fixed;
+  z-index: 99;
+  width: 400px;
+  // top: 0;
+  transition: all .3s ease;
+  left: -400px;
+  background-color: #888;
+  .tab-list {
+    a {
+      display: block;
+    }
+  }
 }
