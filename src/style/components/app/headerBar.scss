@@ -7,28 +7,3 @@ header.topic-header {
   }
 }
 
-.sidebar.show {
-  // 通过该字段移动位置sidebar位置
-  transform: translateX(400px);
-}
-.sidebar {
-  // sidebar样式思路
-  // 侧边栏子元素 设定为块及元素实现一个选项一行
-  // position: fixed 使dom位置相对视窗固定
-  // z-index: 使得sidebar在所有元素的最上方
-  // top, left: 设定初始位置
-  // transition设定过度效果
-  position: fixed;
-  z-index: 99;
-  width: 400px;
-  height: 100%;
-  // top: 0;
-  transition: all .3s ease;
-  left: -400px;
-  background-color: #888;
-  .tab-list {
-    a {
-      display: block;
-    }
-  }
-}

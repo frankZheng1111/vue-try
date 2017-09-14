@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import headerBar from './components/app/headerBar'
+import HeaderBar from './components/app/headerBar'
 
 export default {
   name: 'app',
@@ -17,7 +17,7 @@ export default {
   },
 
   components: {
-    'header-bar': headerBar
+    'header-bar': HeaderBar
   }
 }
 </script>
