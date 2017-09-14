@@ -1,3 +1,5 @@
+@import '../../common/color';
+
 .page-cover {
   position: fixed;
   top: 0;
@@ -33,10 +35,22 @@
   // top: 0;
   transition: all .3s ease;
   left: -400px;
-  background-color: #888;
+  background-color: white;
+  padding: 0 50px;
   .tab-list {
+    border-bottom: 2px solid $lite-grey;
+    border-top: 2px solid $lite-grey;
+    margin-top: 88px;
     a {
       display: block;
+      color: $black;
+      font-size: 36px;
+      font-weight: 555;
+      margin: 66px 0;
+      text-align: center;
+      text-indent: 1px;
+      line-height: 15px;
+      height: 15px;
     }
   }
 }
