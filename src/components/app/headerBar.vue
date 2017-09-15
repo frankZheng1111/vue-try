@@ -25,7 +25,7 @@ export default {
 
   computed: {
     headerBarTitle() {
-      return TAB_TEXTS[this.$route.query.tab]
+      return TAB_TEXTS[this.$route.query.tab || '']
     }
   },
 
