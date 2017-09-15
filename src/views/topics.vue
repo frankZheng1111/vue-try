@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="topics.length">
     <topics-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topics-list>
-    <mt-spinner v-if="loading" class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
+    <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
 </template>
 <script>

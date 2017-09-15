@@ -25,7 +25,14 @@ export default {
 
   computed: {
     headerBarTitle() {
-      return TAB_TEXTS[this.$route.query.tab || '']
+      switch(this.$route.name) {
+        case 'topics':
+          return TAB_TEXTS[this.$route.query.tab || '']
+        case 'topic':
+          return '主题'
+        default:
+          return ''
+      }
     }
   },
 

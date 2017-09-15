@@ -1,0 +1,17 @@
+@import '../common/color.scss';
+
+.topic-page {
+  padding: 0 36px;
+  width: 100%;
+  .topic-title {
+    padding: 20px;
+    color: $purple;
+    background-color: $background-grey;
+    border-radius: 15px;
+  }
+  .topic-content {
+    * {
+      width: 100%
+    }
+  }
+}
