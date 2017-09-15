@@ -7,7 +7,6 @@
 <script>
 import Vue from 'vue'
 import topicsList from '../components/home/topicsList'
-import topicsTabBar from '../components/home/topicsTabBar'
 import * as api from '../api'
 
 import { Spinner } from 'mint-ui'
@@ -25,7 +24,6 @@ export default {
 
   components: {
     'topics-list': topicsList,
-    'topics-tab-bar': topicsTabBar
   },
 
   watch: {
