@@ -1,7 +1,7 @@
 <template>
   <div>
     <topics-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topics-list>
-    <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
+    <mt-spinner v-if="loading" class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
 </template>
 <script>
@@ -9,7 +9,7 @@ import Vue from 'vue'
 import topicsList from '../components/home/topicsList'
 import * as api from '../api'
 
-import { Spinner } from 'mint-ui'
+import { Spinner, Indicator } from 'mint-ui'
 Vue.component(Spinner.name, Spinner)
 
 export default {
@@ -28,13 +28,12 @@ export default {
 
   watch: {
     '$route': async function (to, from) {
-      this.topics = []
-      await this.renderTopics()
+      await this.reRenderTopics()
     }
   },
 
   created() {
-    this.renderTopics()
+    this.reRenderTopics()
   },
 
   methods: {
@@ -43,6 +42,15 @@ export default {
       this.page++
       await this.renderTopics({ page: this.page })
       this.loading = false
+    },
+
+    async reRenderTopics({ page = 1, tab = this.$route.query.tab } = {}) {
+      Indicator.open({ text: '加载中...', spinnerType: 'fading-circle' })
+      let { data: { data: topics } } = await api.getTopics({ page: page, tab: tab })
+      this.topics = []
+      Indicator.close()
+      this.topics.push(...topics)
+      return
     },
 
     async renderTopics({ page = 1, tab = this.$route.query.tab } = {}) {

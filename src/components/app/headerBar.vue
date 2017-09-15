@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-header :title="headerBarTitle" class="topic-header">
+    <mt-header fixed :title="headerBarTitle" class="topic-header">
       <span slot="left" @click="toggleSidebar">菜单</span>
     </mt-header>
     <sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></sidebar>
