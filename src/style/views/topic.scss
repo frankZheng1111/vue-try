@@ -21,9 +21,14 @@
       justify-content: center;
       flex: 1;
       p {
-        margin: 0;
+        font-size: 36px;
+        margin: 10px 0;
         display: flex;
+        font-size: 40px;
         justify-content: space-between;
+        .topic-tab {
+          @include badge-sm
+        }
       }
     }
   }

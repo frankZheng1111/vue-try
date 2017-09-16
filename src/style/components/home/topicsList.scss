@@ -15,14 +15,10 @@
     h3 {
       margin: 0;
       margin-bottom: 30px;
-      span {
+      .topic-tab {
         float: left;
         margin: 0.5% 3% 0 0%;
-        width: 7%;
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 27px;
+        @include badge-sm;
       }
       .topic-title {
         font-size: 2rem;

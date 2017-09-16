@@ -7,7 +7,7 @@
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
       <router-link :to="{ name: 'topic', params: { id: topic.id } }">
         <h3 class="topic-title">
-          <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)"></mt-badge>
+          <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)" class="topic-tab"></mt-badge>
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">

@@ -6,10 +6,10 @@
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
-        <mt-badge size="large" color="#888">{{ '置顶' }}</mt-badge>
+        <mt-badge class="topic-tab" size="large" color="#888">{{ '置顶' }}</mt-badge>
         </p>
         <p>
-          <time>{{ topic.create_at }}</time>
+          <time>{{ '发布于xx前' }}</time>
           <span>xxxxx次浏览</span>
         </p>
       </div>
