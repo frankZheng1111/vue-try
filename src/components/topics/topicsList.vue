@@ -33,7 +33,6 @@
 <script>
 import Vue from 'vue'
 import { InfiniteScroll, Badge } from 'mint-ui'
-import { TimeUtil } from '../../libs/utils.js'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 
 Vue.component(Badge.name, Badge);
@@ -61,7 +60,7 @@ export default {
     },
 
     timeFromNow(time) {
-      return new TimeUtil(time).timeFromNow
+      return new TopicComputedAttr(topic).createTimeFromNow
     }
   }
 }

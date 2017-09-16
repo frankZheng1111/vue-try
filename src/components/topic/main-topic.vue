@@ -8,8 +8,8 @@
         <mt-badge class="topic-tab" size="large" :color="topic.computedAttrs.tagColor">{{ topic.computedAttrs.tagText }}</mt-badge>
         </p>
         <p>
-          <time>{{ '发布于xx前' }}</time>
-          <span>xxxxx次浏览</span>
+        <time>{{ `发布于${topic.computedAttrs.createTimeFromNow}` }}</time>
+          <span>{{ `${topic.visit_count}次浏览` }}</span>
         </p>
       </div>
     </section>

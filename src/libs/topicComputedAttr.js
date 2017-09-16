@@ -1,6 +1,8 @@
 'use strict'
 
 import TAB_TEXTS from '../config/tabTexts'
+import { TimeUtil } from './utils'
+
 const TAG_COLORS = {
   top: '#f44336',
   ask: '#26a2ff',
@@ -13,6 +15,11 @@ const TAG_COLORS = {
 export default class TopicComputedAttr {
   constructor(topic) {
     this.data = topic
+  }
+
+  get createTimeFromNow() {
+    let topic = this.data
+    return new TimeUtil(topic.create_at).timeFromNow
   }
 
   get tagText() {
