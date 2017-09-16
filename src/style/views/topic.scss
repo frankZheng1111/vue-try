@@ -4,37 +4,10 @@
 .topic-page {
   padding: 0 36px;
   width: 100%;
-  .avatar.avatar-small {
-    @include circle-avatar(150px);
-  }
   .topic-title {
     padding: 20px;
     color: $purple;
     background-color: $background-grey;
     border-radius: 15px;
-  }
-  .topic-info {
-    display: flex;
-    .topic-detail {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex: 1;
-      p {
-        font-size: 36px;
-        margin: 10px 0;
-        display: flex;
-        font-size: 40px;
-        justify-content: space-between;
-        .topic-tab {
-          @include badge-sm
-        }
-      }
-    }
-  }
-  .topic-content {
-    * {
-      width: 100%
-    }
   }
 }

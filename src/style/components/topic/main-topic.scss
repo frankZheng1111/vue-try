@@ -1,0 +1,32 @@
+@import '../../common/color.scss';
+@import '../../common/widget';
+
+.main-topic {
+  .avatar.avatar-small {
+    @include circle-avatar(150px);
+  }
+  .topic-info {
+    display: flex;
+    .topic-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      p {
+        font-size: 36px;
+        margin: 10px 0;
+        display: flex;
+        font-size: 40px;
+        justify-content: space-between;
+        .topic-tab {
+          @include badge-sm
+        }
+      }
+    }
+  }
+  .topic-content {
+    * {
+      width: 100%
+    }
+  }
+}
