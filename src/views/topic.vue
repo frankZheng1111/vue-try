@@ -10,6 +10,7 @@
         </p>
         <p>
           <time>{{ topic.create_at }}</time>
+          <span>xxxxx次浏览</span>
         </p>
       </div>
     </section>

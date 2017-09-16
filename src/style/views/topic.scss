@@ -13,6 +13,20 @@
     background-color: $background-grey;
     border-radius: 15px;
   }
+  .topic-info {
+    display: flex;
+    .topic-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      p {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
   .topic-content {
     * {
       width: 100%
