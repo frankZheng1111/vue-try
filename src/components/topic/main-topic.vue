@@ -5,7 +5,7 @@
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
-        <mt-badge class="topic-tab" size="large" color="#888">{{ '置顶' }}</mt-badge>
+        <mt-badge class="topic-tab" size="large" :color="topic.computedAttrs.tagColor">{{ topic.computedAttrs.tagText }}</mt-badge>
         </p>
         <p>
           <time>{{ '发布于xx前' }}</time>
@@ -20,18 +20,23 @@
 import Vue from 'vue'
 import { Badge } from 'mint-ui'
 
+import { TimeUtil } from '../../libs/utils.js'
+import TopicComputedAttr from '../../libs/topicComputedAttr.js'
+
 Vue.component(Badge.name, Badge);
 
 export default {
   data() {
-    setTimeout(() => { console.log(this.topic); }, 10000)
-    return {
-    }
+    return { }
   },
 
   props: ['topic'],
 
-  methods: {
+  created () {
+    if (this.topic) {
+      this.topic.computedAttrs = new TopicComputedAttr(this.topic)
+      console.log(this.topic.computedAttrs.tagColor)
+    }
   }
 }
 </script>

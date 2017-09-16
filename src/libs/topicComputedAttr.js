@@ -10,7 +10,7 @@ const TAG_COLORS = {
   all: '#888'
 }
 
-export default class Topic {
+export default class TopicComputedAttr {
   constructor(topic) {
     this.data = topic
   }

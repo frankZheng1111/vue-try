@@ -33,9 +33,8 @@
 <script>
 import Vue from 'vue'
 import { InfiniteScroll, Badge } from 'mint-ui'
-import TAB_TEXTS from '../../config/tabTexts'
 import { TimeUtil } from '../../libs/utils.js'
-import Topic from '../../libs/topic.js'
+import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 
 Vue.component(Badge.name, Badge);
 Vue.use(InfiniteScroll)
@@ -50,11 +49,11 @@ export default {
 
   methods: {
     topicTagText(topic) {
-      return new Topic(topic).tagText
+      return new TopicComputedAttr(topic).tagText
     },
 
     topicTagColor(topic) {
-      return new Topic(topic).tagColor
+      return new TopicComputedAttr(topic).tagColor
     },
 
     loadMore() {
