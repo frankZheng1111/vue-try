@@ -1,12 +1,12 @@
 <template>
   <div v-if="topic" class="topic-page">
     <h2 class="topic-title">{{ topic.title }}</h2>
-    <section>
+    <section class="topic-info">
       <img class="avatar avatar-small pull-left" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
-      <div>
+      <div class="topic-detail">
         <p>
-          <span class="author-name" v-text="topic.author.loginname" ></span>
-          <mt-badge size="large" v-text="'置顶'" color="#888"></mt-badge>
+        <span class="author-name" >{{ topic.author.loginname }}</span>
+        <mt-badge size="large" color="#888">{{ '置顶' }}</mt-badge>
         </p>
         <p>
           <time>{{ topic.create_at }}</time>
