@@ -1,0 +1,7 @@
+@mixin circle-avatar($diameter:100px) {
+  border: 1px solid #f3f3f3;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: $diameter;
+  height: $diameter;
+}

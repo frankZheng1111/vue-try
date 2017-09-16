@@ -1,14 +1,13 @@
 @import '../../common/color';
+@import '../../common/widget';
 
 .list {
+  padding: 0;
   li {
+    list-style: none;
     .avatar.avatar-small {
-      width: 100px;
-      height: 100px;
       margin: -10px 30px 10px 0px;
-      border: 1px solid #f3f3f3;
-      -moz-border-radius: 50%;
-      -webkit-border-radius: 50%;
+      @include circle-avatar(100px);
     }
     border-bottom: 1px solid #ddd;
     height: 200px;

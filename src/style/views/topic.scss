@@ -1,8 +1,12 @@
 @import '../common/color.scss';
+@import '../common/widget';
 
 .topic-page {
   padding: 0 36px;
   width: 100%;
+  .avatar.avatar-small {
+    @include circle-avatar(150px);
+  }
   .topic-title {
     padding: 20px;
     color: $purple;
