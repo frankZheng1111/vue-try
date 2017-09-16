@@ -6,7 +6,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import topicsList from '../components/home/topicsList'
+import topicsList from '../components/topics/topicsList'
 import * as api from '../api'
 
 import { Spinner, Indicator } from 'mint-ui'
@@ -63,5 +63,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../style/views/home";
+  @import "../style/views/topics";
 </style>

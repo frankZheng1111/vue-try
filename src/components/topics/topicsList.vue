@@ -84,5 +84,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../style/components/home/topicsList";
+  @import "../../style/components/topics/topicsList";
 </style>
