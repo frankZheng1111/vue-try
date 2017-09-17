@@ -6,22 +6,22 @@
   li {
     list-style: none;
     .avatar.avatar-small {
-      margin: -10px 30px 10px 0px;
-      @include circle-avatar(100px);
+      @include circle-avatar(150px);
     }
     border-bottom: 1px solid #ddd;
-    height: 200px;
-    padding: 2% 6% 6% 6%;
+    padding: 20px 40px;
     h3 {
+      display: flex;
+      align-items: center;
       margin: 0;
       margin-bottom: 30px;
       .topic-tab {
-        float: left;
         margin: 0.5% 3% 0 0%;
         @include badge-sm;
       }
       .topic-title {
-        font-size: 2rem;
+        font-size: 2.4rem;
+        flex: 1;
         display:block;
         color: $purple;
         white-space:nowrap;
@@ -32,15 +32,22 @@
     .topic-count.reply-count {
       color: $blue;
     }
-    .detail-info {
-      display: block;
-      color: $deep-blue;
-      font-size: 1.5rem;
-      p {
-        .topic-reply-count {
-          color: $blue;
+    .topic-detail-info {
+      display: flex;
+      align-items: center;
+      .detail-info {
+        flex: 1;
+        display: block;
+        color: $deep-blue;
+        font-size: 2.4rem;
+        p {
+          display: flex;
+          justify-content: space-between;
+          .topic-reply-count {
+            color: $blue;
+          }
+          margin: 2%;
         }
-        margin: 2%;
       }
     }
   }

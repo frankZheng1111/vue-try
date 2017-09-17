@@ -11,18 +11,18 @@
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">
-          <img class="avatar avatar-small pull-left" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
+          <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
           <div class="detail-info">
             <p>
               <span class="author-name" v-text="topic.author.loginname" ></span>
-              <span class="topic-count pull-right">
+              <span class="topic-count">
                 <b class="topic-reply-count" v-text="topic.reply_count"></b>
                 {{ `/ ${topic.visit_count}` }}
               </span>
             </p>
             <p>
             <time>{{ timeFromNow(topic) }}</time>
-            <time class="pull-right">{{ timeFromNow(topic.last_reply_at) }}</time>
+            <time>{{ timeFromNow(topic.last_reply_at) }}</time>
             </p>
           </div>
         </div>
