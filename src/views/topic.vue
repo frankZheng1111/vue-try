@@ -12,7 +12,7 @@
 <script>
 'use strict'
 
-import MainTopic from '../components/topic/main-topic'
+import MainTopic from '../components/topic/mainTopic'
 import * as api from '../api'
 
 export default {

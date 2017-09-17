@@ -38,12 +38,11 @@ export default {
   created () {
     if (this.topic) {
       this.topic.computedAttrs = new TopicComputedAttr(this.topic)
-      console.log(this.topic.computedAttrs.tagColor)
     }
   }
 }
 </script>
 
 <style lang="scss">
-  @import "../../style/components/topic/main-topic";
+  @import "../../style/components/topic/mainTopic";
 </style>

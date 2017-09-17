@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../style/components/topic/topicComments";
+  @import "../../style/components/topic/commentList";
 </style>
