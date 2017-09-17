@@ -22,6 +22,11 @@ export default class TopicComputedAttr {
     return new TimeUtil(topic.create_at).timeFromNow
   }
 
+  get lastReplyTimeFromNow() {
+    let topic = this.data
+    return new TimeUtil(topic.last_reply_at).timeFromNow
+  }
+
   get tagText() {
     let topic = this.data
       if (topic.top) { return '置顶' }

@@ -21,8 +21,8 @@
               </span>
             </p>
             <p>
-            <time>{{ timeFromNow(topic) }}</time>
-            <time>{{ timeFromNow(topic.last_reply_at) }}</time>
+            <time>{{ createTimeFromNow(topic) }}</time>
+            <time>{{ lastReplyTimeFromNow(topic) }}</time>
             </p>
           </div>
         </div>
@@ -59,8 +59,12 @@ export default {
       this.$emit('loadMore')
     },
 
-    timeFromNow(topic) {
+    createTimeFromNow(topic) {
       return new TopicComputedAttr(topic).createTimeFromNow
+    },
+
+    lastReplyTimeFromNow(topic) {
+      return new TopicComputedAttr(topic).lastReplyTimeFromNow
     }
   }
 }
