@@ -4,7 +4,10 @@
     <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
 </template>
+
 <script>
+'use strict'
+
 import Vue from 'vue'
 import topicsList from '../components/topics/topicsList'
 import * as api from '../api'

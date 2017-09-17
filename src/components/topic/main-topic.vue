@@ -16,7 +16,10 @@
     <div class="topic-content" v-html="topic.content"></div>
   </div>
 </template>
+
 <script>
+'use strict'
+
 import Vue from 'vue'
 import { Badge } from 'mint-ui'
 

@@ -8,7 +8,10 @@
     </h3>
   </div>
 </template>
+
 <script>
+'use strict'
+
 import MainTopic from '../components/topic/main-topic'
 import * as api from '../api'
 

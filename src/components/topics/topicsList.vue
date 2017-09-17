@@ -30,7 +30,10 @@
     </li>
   </ul>
 </template>
+
 <script>
+'use strict'
+
 import Vue from 'vue'
 import { InfiniteScroll, Badge } from 'mint-ui'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'

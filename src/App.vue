@@ -6,6 +6,8 @@
 </template>
 
 <script>
+'use strict'
+
 import HeaderBar from './components/app/headerBar'
 
 export default {
