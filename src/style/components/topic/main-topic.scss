@@ -13,10 +13,10 @@
       justify-content: center;
       flex: 1;
       p {
-        font-size: 36px;
+        font-size: 2.4rem;
         margin: 10px 0;
         display: flex;
-        font-size: 40px;
+        font-size: 2.6rem;
         justify-content: space-between;
         .topic-tab {
           @include badge-sm
