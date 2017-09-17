@@ -2,6 +2,10 @@
   <div v-if="topic" class="topic-page">
     <h2 class="topic-title">{{ topic.title }}</h2>
     <main-topic :topic="topic"></main-topic>
+    <h3 class="topic-reply-field-title">
+      <span>{{ topic.reply_count }}</span>
+      条回复
+    </h3>
   </div>
 </template>
 <script>
