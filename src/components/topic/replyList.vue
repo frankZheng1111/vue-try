@@ -30,6 +30,7 @@
 import { TimeUtil } from '../../libs/utils'
 
 export default {
+  name: 'replyList',
   props: ['replies'],
 
   data() {

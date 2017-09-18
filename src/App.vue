@@ -1,7 +1,9 @@
 <template>
   <div class='container'>
     <header-bar :selectedTab="topicsTab"></header-bar>
-    <router-view class='view' keep-alive transition transition-mode='out-in'> </router-view>
+    <keep-alive :include="includeComponents">
+      <router-view class='view'> </router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ export default {
   data() {
     return {
       topicsTab: this.$route.query.tab || '',
+      includeComponents: "topics"
     }
   },
 

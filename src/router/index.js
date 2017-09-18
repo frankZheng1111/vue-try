@@ -11,6 +11,9 @@ export default new Router({
     {
       path: '/topics',
       name: 'topics',
+      meta: {
+        keepAlive: true
+      },
       component: topics
     },
     {
@@ -18,6 +21,7 @@ export default new Router({
       //
       path: '/topic/:id',
       name: 'topic',
+      meta: {},
       component: topic
     },
     { path: '*', redirect: '/topics' }

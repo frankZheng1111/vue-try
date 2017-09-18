@@ -31,6 +31,7 @@ import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 Vue.component(Badge.name, Badge);
 
 export default {
+  name: 'mainTopic',
   data() {
     return { }
   },

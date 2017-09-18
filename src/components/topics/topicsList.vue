@@ -3,7 +3,7 @@
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check="false"
-      infinite-scroll-distance="600">
+      infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
       <router-link :to="{ name: 'topic', params: { id: topic.id } }">
         <h3 class="topic-title">
@@ -42,6 +42,7 @@ Vue.component(Badge.name, Badge);
 Vue.use(InfiniteScroll)
 
 export default {
+  name: 'topicsList',
   data() {
     return {
     }

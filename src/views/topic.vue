@@ -18,6 +18,7 @@ import ReplyList from '../components/topic/replyList'
 import * as api from '../api'
 
 export default {
+  name: 'topic',
   data() {
     return {
       topicId: this.$route.params.id,

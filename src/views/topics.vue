@@ -16,6 +16,7 @@ import { Spinner, Indicator } from 'mint-ui'
 Vue.component(Spinner.name, Spinner)
 
 export default {
+  name: 'topics',
   data() {
     return {
       page: 1,
@@ -31,7 +32,9 @@ export default {
 
   watch: {
     '$route': async function (to, from) {
-      await this.reRenderTopics()
+      if (from.path === '/topics' && to.path === '/topics') {
+        await this.reRenderTopics()
+      }
     }
   },
 
@@ -41,6 +44,7 @@ export default {
 
   methods: {
     async loadMore() {
+      if (this.$route.name !== 'topics') { return }
       this.loading = true
       this.page++
       await this.renderTopics({ page: this.page })
