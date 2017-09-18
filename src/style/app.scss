@@ -1,3 +1,5 @@
+@import './common/color.scss';
+
 * { box-sizing: border-box; }
 
 // html { font-size: medium }
@@ -12,4 +14,19 @@ a { text-decoration: none; }
   padding-top: 88px
 }
 
-
+.markdown-body {
+  word-wrap: break-word;
+  font-size: 2rem;
+  .markdown-text {
+    pre {
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 2.4rem;
+      overflow: auto;
+      background-color: $code-background-color;
+    }
+  }
+  * {
+    width: 100%
+  }
+}

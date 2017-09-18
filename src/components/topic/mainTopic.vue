@@ -13,7 +13,9 @@
         </p>
       </div>
     </section>
-    <div class="topic-content" v-html="topic.content"></div>
+    <div class="topic-content">
+      <div class="markdown-body" v-html="topic.content"></div>
+    </div>
   </div>
 </template>
 
