@@ -16,3 +16,23 @@ export class TimeUtil {
   }
 }
 
+export class LocalStorage {
+  constructor() {}
+
+  static set(key, value) {
+    window.localStorage.setItem(key, value)
+  }
+
+  static get(key) {
+    window.localStorage.getItem(key)
+  }
+
+  static clear() {
+    window.localStorage.clear()
+  }
+
+  static remove(key) {
+    window.localStorage.removeItem(key)
+  }
+}
+
