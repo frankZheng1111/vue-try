@@ -6,6 +6,7 @@
       <span>{{ topic.reply_count }}</span>
       条回复
     </h3>
+    <reply-list :replies="topic.replies"></reply-list>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 'use strict'
 
 import MainTopic from '../components/topic/mainTopic'
+import ReplyList from '../components/topic/replyList'
 import * as api from '../api'
 
 export default {
@@ -24,7 +26,8 @@ export default {
   },
 
   components: {
-    'main-topic': MainTopic
+    'main-topic': MainTopic,
+    'reply-list': ReplyList
   },
 
   created() {
