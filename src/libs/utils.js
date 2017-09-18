@@ -7,6 +7,10 @@ export class TimeUtil {
     moment.locale(momentLocale)
   }
 
+  formatTime(format = 'YYYY-M-DD HH:mm') {
+    return moment(this.time).format(format)
+  }
+
   get timeFromNow() {
     return moment(this.time).fromNow()
   }

@@ -10,9 +10,9 @@
               <span>{{ `#${replies.indexOf(reply) + 1}` }}</span>
             </p>
             <p>
-              <time>{{ reply.create_at }}</time>
+              <time>{{ replyCreatedAt(reply) }}</time>
               <span class="reply-action">
-                <span>赞(1)</span>
+                <span>赞({{ reply.ups.length }})</span>
                 <span>回复</span>
               </span>
             </p>
@@ -27,12 +27,19 @@
 
 <script>
 'use strict'
+import { TimeUtil } from '../../libs/utils'
 
 export default {
   props: ['replies'],
 
   data() {
     return {}
+  },
+
+  methods: {
+    replyCreatedAt(reply) {
+      return new TimeUtil(reply.create_at).formatTime()
+    }
   }
 }
 </script>
