@@ -7,13 +7,13 @@ import topic from '../views/topic.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+
   routes: [
     {
       path: '/topics',
       name: 'topics',
-      meta: {
-        keepAlive: true
-      },
+      meta: {},
       component: topics
     },
     {
@@ -25,5 +25,13 @@ export default new Router({
       component: topic
     },
     { path: '*', redirect: '/topics' }
-  ]
+  ],
+
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
