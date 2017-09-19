@@ -1,7 +1,7 @@
 <template>
   <div>
     <mt-header fixed :title="headerBarTitle" class="topic-header">
-      <span slot="left" @click="toggleSidebar">菜单</span>
+      <span class="sidebar-list" slot="left" @click="toggleSidebar">菜单</span>
     </mt-header>
     <sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></sidebar>
   </div>

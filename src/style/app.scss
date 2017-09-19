@@ -1,6 +1,9 @@
 @import './common/color.scss';
 
-* { box-sizing: border-box; }
+* {
+  max-height: 100%;
+  box-sizing: border-box;
+}
 
 // html { font-size: medium }
 body { margin: 0; }
@@ -16,17 +19,34 @@ a { text-decoration: none; }
 
 .markdown-body {
   word-wrap: break-word;
-  font-size: 1.4rem;
+  font-size: 2.5rem;
   .markdown-text {
+    table, pre {
+      overflow: auto;
+    }
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: block;
+      width: 100%;
+      overflow: auto;
+      tr:nth-child(2n) {
+        background-color: $code-background-color;
+      }
+      td, th {
+        border: 2px solid $lite-grey;
+      }
+    }
     pre {
       padding: 20px;
       border-radius: 20px;
       font-size: 2.4rem;
-      overflow: auto;
       background-color: $code-background-color;
     }
   }
   * {
-    width: 100%
+    max-width: 100%
   }
 }
