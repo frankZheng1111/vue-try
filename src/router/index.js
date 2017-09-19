@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import store from '../store'
+
 import topics from '../views/topics.vue'
 import topic from '../views/topic.vue'
 
 Vue.use(Router)
+
 
 export default new Router({
   mode: 'history',

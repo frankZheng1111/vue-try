@@ -12,6 +12,8 @@ import Vue from 'vue'
 import topicsList from '../components/topics/topicsList'
 import * as api from '../api'
 
+import store from '../store'
+
 import { Spinner, Indicator } from 'mint-ui'
 Vue.component(Spinner.name, Spinner)
 
@@ -32,8 +34,14 @@ export default {
 
   watch: {
     '$route': async function (to, from) {
-      if (from.path === '/topics' && to.path === '/topics') {
+      let lastTopicsTab = store.getters.lastTopicsTab
+      let currentTopicsTab = to.query.tab || null
+      if (to.name === 'topics' && currentTopicsTab !== lastTopicsTab) {
         await this.reRenderTopics()
+        store.commit({
+          type: 'setLastTopicsTab',
+          tab: currentTopicsTab
+        })
       }
     }
   },
