@@ -6,15 +6,15 @@
   li {
     list-style: none;
     .avatar.avatar-small {
-      @include circle-avatar(150px);
+      @include circle-avatar(9.38rem);
     }
     border-bottom: 1px solid #ddd;
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
     h3 {
       display: flex;
       align-items: center;
       margin: 0;
-      margin-bottom: 30px;
+      margin-bottom: 1.88rem;
       .topic-tab {
         margin: 0.5% 3% 0 0%;
         @include badge-sm;

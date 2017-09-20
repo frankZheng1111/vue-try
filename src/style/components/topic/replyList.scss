@@ -5,7 +5,7 @@
   .reply-list {
     padding: 0;
     .reply {
-      padding: 20px;
+      padding: 1.25rem;
       list-style: none;
       border-bottom: 1px solid $lite-grey;
       .replyer-info {
@@ -16,13 +16,13 @@
           flex: 1;
           p {
             display: flex;
-            margin: 10px;
+            margin: 0.63rem;
             justify-content: space-between;
           }
         }
         .avatar.avatar-small {
-          margin-right: 20px;
-          @include circle-avatar(100px);
+          margin-right: 1.25rem;
+          @include circle-avatar(6.25rem);
         }
       }
       .reply-content.markdown-body {

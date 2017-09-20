@@ -14,7 +14,7 @@ a { text-decoration: none; }
   margin: auto;
   width: 100%;
   max-width: 1000px;
-  padding-top: 88px
+  padding-top: 5.5rem;
 }
 
 .markdown-body {
@@ -28,7 +28,7 @@ a { text-decoration: none; }
       border-spacing: 0;
       border-collapse: collapse;
       margin-top: 0;
-      margin-bottom: 16px;
+      margin-bottom: 1rem;
       display: block;
       width: 100%;
       overflow: auto;
@@ -40,7 +40,7 @@ a { text-decoration: none; }
       }
     }
     pre {
-      padding: 20px;
+      padding: 1.25rem;
       border-radius: 20px;
       font-size: 2.4rem;
       background-color: $code-background-color;
