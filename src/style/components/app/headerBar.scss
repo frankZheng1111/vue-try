@@ -1,11 +1,24 @@
-header.topic-header {
+@import '../../common/color';
+
+header.headerBar {
+  display: flex;
+  background-color: $blue;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
   font-size: 2.6rem;
-  padding: 3.13rem 0.63rem;
-  h1 { max-height: none; }
-  div { max-height: none; }
+  padding: 0.6rem 2.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  h3 {
+    margin: 0;
+  }
   span {
+    margin: 0;
     font-size: 2rem;
-    padding: 2.5rem;
+    line-height: 2.5rem;
   }
 }
 

@@ -1,19 +1,18 @@
 <template>
   <div>
-    <mt-header fixed :title="headerBarTitle" class="topic-header">
-      <span class="sidebar-list" slot="left" @click="toggleSidebar">菜单</span>
-    </mt-header>
+    <header class="headerBar">
+      <span class="sidebar-list" @click="toggleSidebar">菜单</span>
+      <h3>{{ headerBarTitle }}</h3>
+      <span></span>
+    </header>
     <sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></sidebar>
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import { Header } from 'mint-ui'
+'use strict'
+
 import TAB_TEXTS from '../../config/tabTexts'
-
 import Sidebar from './sidebar'
-
-Vue.component(Header.name, Header)
 
 export default {
   data() {
