@@ -1,11 +1,22 @@
 @import './common/color.scss';
 
+// 1rem=100/(16/10)=62.5%=10px
+html { font-size: 62.5% }
+/*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+
+@media screen and (max-width: 1270px) {
+  html { font-size: 125%; }
+}
+
+@media screen and (max-width: 762px) {
+  html { font-size: 187.5%; }
+}
+
 * {
   max-height: 100%;
   box-sizing: border-box;
 }
 
-// html { font-size: medium }
 body { margin: 0; }
 a { text-decoration: none; }
 
@@ -19,7 +30,7 @@ a { text-decoration: none; }
 
 .markdown-body {
   word-wrap: break-word;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   .markdown-text {
     table, pre {
       overflow: auto;
@@ -42,7 +53,7 @@ a { text-decoration: none; }
     pre {
       padding: 1.25rem;
       border-radius: 20px;
-      font-size: 2.4rem;
+      font-size: 1.4rem;
       background-color: $code-background-color;
     }
   }

@@ -5,14 +5,14 @@
   .reply-list {
     padding: 0;
     .reply {
-      padding: 1.25rem;
+      padding: 0.25rem 1.5rem;
       list-style: none;
       border-bottom: 1px solid $lite-grey;
       .replyer-info {
         display: flex;
         align-items: center;
         .replyer-detail-info {
-          font-size: 2.1rem;
+          font-size: 1.1rem;
           flex: 1;
           p {
             display: flex;
@@ -21,12 +21,12 @@
           }
         }
         .avatar.avatar-small {
-          margin-right: 1.25rem;
-          @include circle-avatar(6.25rem);
+          margin-right: 0.55rem;
+          @include circle-avatar(3.25rem);
         }
       }
       .reply-content.markdown-body {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
       }
     }
   }
