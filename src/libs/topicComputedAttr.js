@@ -27,9 +27,17 @@ export default class TopicComputedAttr {
     return new TimeUtil(topic.last_reply_at).timeFromNow
   }
 
+  get mainTab() {
+    let topic = this.data
+    if (topic.top) { return 'top' }
+    if (topic.good) { return 'good' }
+    if (topic.tab) { return topic.tab }
+    return 'all'
+  }
+
   get tagText() {
     let topic = this.data
-      if (topic.top) { return '置顶' }
+    if (topic.top) { return '置顶' }
     if (topic.good) { return '精华' }
     if (TAB_TEXTS[topic.tab]) { return TAB_TEXTS[topic.tab] }
     return '全部'
@@ -37,8 +45,8 @@ export default class TopicComputedAttr {
 
   get tagColor() {
     let topic = this.data
-      let colorKey = 'all'
-      if (topic.top) { return TAG_COLORS.top }
+    let colorKey = 'all'
+    if (topic.top) { return TAG_COLORS.top }
     if (topic.good) { return TAG_COLORS.good }
     if (topic.tab) { return TAG_COLORS[topic.tab] }
     return TAG_COLORS[colorKey]

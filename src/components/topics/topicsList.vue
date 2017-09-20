@@ -7,7 +7,7 @@
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
       <router-link :to="{ name: 'topic', params: { id: topic.id } }">
         <h3 class="topic-title">
-          <mt-badge size="large" v-text="topicTagText(topic)" :color="topicTagColor(topic)" class="topic-tab"></mt-badge>
+          <span :class="`${topicMainTab(topic)}-tag`" class="topic-tab">{{ topicTagText(topic) }}</span>
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">
@@ -21,8 +21,8 @@
               </span>
             </p>
             <p>
-            <time>{{ createTimeFromNow(topic) }}</time>
-            <time>{{ lastReplyTimeFromNow(topic) }}</time>
+              <time>{{ createTimeFromNow(topic) }}</time>
+              <time>{{ lastReplyTimeFromNow(topic) }}</time>
             </p>
           </div>
         </div>
@@ -35,10 +35,9 @@
 'use strict'
 
 import Vue from 'vue'
-import { InfiniteScroll, Badge } from 'mint-ui'
+import { InfiniteScroll } from 'mint-ui'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 
-Vue.component(Badge.name, Badge);
 Vue.use(InfiniteScroll)
 
 export default {
@@ -55,8 +54,8 @@ export default {
       return new TopicComputedAttr(topic).tagText
     },
 
-    topicTagColor(topic) {
-      return new TopicComputedAttr(topic).tagColor
+    topicMainTab(topic) {
+      return new TopicComputedAttr(topic).mainTab
     },
 
     loadMore() {

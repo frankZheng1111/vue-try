@@ -8,7 +8,23 @@
 
 @mixin badge-sm {
   width: 9.38rem;
-  height: 3.75rem;
-  line-height: 60px;
+  height: 4.4rem;
+  line-height: 4.4rem;
   font-size: 2.4rem;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
 }
+
+.badge.badge-sm {
+  @include badge-sm;
+  background-color: #888;
+}
+
+.all-tag, .dev-tag { @include badge-sm; background-color: #888; }
+.ask-tag { @include badge-sm; background-color: #26a2ff; }
+.share-tag { @include badge-sm; background-color: #4caf50; }
+
+.good-tag { @include badge-sm; background-color: #e67e22; }
+.top-tag { @include badge-sm; background-color: #f44336; }
+

@@ -5,11 +5,11 @@
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
-        <mt-badge class="topic-tab" size="large" :color="topic.computedAttrs.tagColor">{{ topic.computedAttrs.tagText }}</mt-badge>
+        <span :class="`${topic.computedAttrs.mainTab}-tag`" class="topic-tab">{{ topic.computedAttrs.tagText }}</span>
         </p>
         <p>
         <time>{{ `发布于${topic.computedAttrs.createTimeFromNow}` }}</time>
-          <span>{{ `${topic.visit_count}次浏览` }}</span>
+        <span>{{ `${topic.visit_count}次浏览` }}</span>
         </p>
       </div>
     </section>
@@ -22,13 +22,8 @@
 <script>
 'use strict'
 
-import Vue from 'vue'
-import { Badge } from 'mint-ui'
-
 import { TimeUtil } from '../../libs/utils.js'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
-
-Vue.component(Badge.name, Badge);
 
 export default {
   name: 'mainTopic',
