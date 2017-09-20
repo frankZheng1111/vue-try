@@ -3,7 +3,6 @@
     <header class="headerBar">
       <span class="sidebar-list" @click="toggleSidebar">菜单</span>
       <h3>{{ headerBarTitle }}</h3>
-      <span></span>
     </header>
     <sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></sidebar>
   </div>
