@@ -2,14 +2,10 @@
 
 // 1rem=100/(16/10)=62.5%=10px
 html { font-size: 62.5% }
-/*当屏幕尺寸小于600px时，应用下面的CSS样式*/
 
-@media screen and (max-width: 1270px) {
-  html { font-size: 125%; }
-}
-
-@media screen and (max-width: 980px) {
-  html { font-size: 187.5%; }
+/*当屏幕尺寸小于400px时，应用下面的CSS样式*/
+@media screen and (max-width: 400px) {
+  html { font-size: 52.5%; }
 }
 
 * {
@@ -25,6 +21,7 @@ a { text-decoration: none; }
   margin: auto;
   width: 100%;
   max-width: 1000px;
+  min-width: 280px;
   padding-top: 5.5rem;
 }
 
