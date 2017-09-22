@@ -19,7 +19,7 @@
 
 .sidebar.show {
   // 通过该字段移动位置sidebar位置
-  transform: translateX(400px);
+  transform: translateX(12rem);
 }
 .sidebar {
   // sidebar样式思路
@@ -30,26 +30,34 @@
   // transition设定过度效果
   position: fixed;
   z-index: 99;
-  width: 400px;
+  width: 12rem;
   height: 100%;
   top: 0;
   transition: all .3s ease;
-  left: -400px;
+  left: -12rem;
   background-color: white;
-  padding: 0 50px;
+  padding: 6rem 1.5rem;
+  .login {
+    .login-btn {
+      display: block;
+      margin: auto;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+    margin-bottom: 2rem;
+  }
   .tab-list {
     border-bottom: 2px solid $lite-grey;
     border-top: 2px solid $lite-grey;
-    margin-top: 88px;
+    padding: 1rem 0;
     a {
       display: block;
       color: $black;
-      font-size: 2.4rem;
-      font-weight: 555px;
+      font-size: 1.6rem;
+      font-weight: 500;
       text-align: center;
       text-indent: 1px;
-      line-height: 100px;
-      height: 100px;
+      line-height: 3.3rem;
     }
   }
 }

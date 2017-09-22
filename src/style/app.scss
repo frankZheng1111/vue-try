@@ -4,8 +4,9 @@
 html { font-size: 62.5% }
 
 /*当屏幕尺寸小于400px时，应用下面的CSS样式*/
-@media screen and (max-width: 400px) {
-  html { font-size: 52.5%; }
+
+@media screen and (max-width: 374px) {
+  html { font-size: 60%; }
 }
 
 * {
