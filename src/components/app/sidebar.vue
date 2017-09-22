@@ -21,11 +21,9 @@
 'use strict'
 
 import Vue from 'vue'
-import { Actionsheet, MessageBox } from 'mint-ui'
+import { MessageBox } from 'mint-ui'
 
 import TAB_TEXTS from '../../config/tabTexts'
-
-Vue.component(Actionsheet.name, Actionsheet)
 
 export default {
   props: ['activeSidebar'],
