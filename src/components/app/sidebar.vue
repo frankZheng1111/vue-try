@@ -24,7 +24,7 @@ import Vue from 'vue'
 import { MessageBox } from 'mint-ui'
 
 import TAB_TEXTS from '../../config/tabTexts'
-import * as api from '../../api'
+import User from '../../libs/user'
 
 export default {
   props: ['activeSidebar'],
@@ -37,15 +37,22 @@ export default {
   },
 
   methods: {
+    async _userLogin(accessToken) {
+      let user = new User(accessToken)
+      if (await user.login()) {
+        await MessageBox.alert('登录成功', '提示信息')
+      } else {
+        await MessageBox.alert('登录失败', '提示信息')
+      }
+      return
+    },
+
     async showInputTokenForm() {
       this.hideSidebar()
       try {
         let { value: accessToken, action } = await MessageBox.prompt('请输入access token', '', { '$type': 'confirm' })
-        console.log(accessToken)
         if (accessToken) {
-          await api.userLogin()
-          await MessageBox.alert('登录成功', '提示信息')
-
+          await this._userLogin(accessToken)
         } else {
           await MessageBox.alert('accessToken 不能为空', '提示信息')
         }
