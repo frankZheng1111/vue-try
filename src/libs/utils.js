@@ -20,19 +20,19 @@ export class LocalStorage {
   constructor() {}
 
   static set(key, value) {
-    window.localStorage.setItem(key, value)
+    return window.localStorage.setItem(key, value)
   }
 
   static get(key) {
-    window.localStorage.getItem(key)
+    return window.localStorage.getItem(key)
   }
 
   static clear() {
-    window.localStorage.clear()
+    return window.localStorage.clear()
   }
 
   static remove(key) {
-    window.localStorage.removeItem(key)
+    return window.localStorage.removeItem(key)
   }
 }
 

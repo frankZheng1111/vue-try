@@ -24,6 +24,7 @@ import Vue from 'vue'
 import { MessageBox } from 'mint-ui'
 
 import TAB_TEXTS from '../../config/tabTexts'
+import * as api from '../../api'
 
 export default {
   props: ['activeSidebar'],
@@ -42,7 +43,9 @@ export default {
         let { value: accessToken, action } = await MessageBox.prompt('请输入access token', '', { '$type': 'confirm' })
         console.log(accessToken)
         if (accessToken) {
+          await api.userLogin()
           await MessageBox.alert('登录成功', '提示信息')
+
         } else {
           await MessageBox.alert('accessToken 不能为空', '提示信息')
         }
