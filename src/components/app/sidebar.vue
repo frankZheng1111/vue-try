@@ -5,6 +5,8 @@
     </transition>
     <section :class="{ sidebar: true, show: activeSidebar }">
       <section v-if="isUserLogin()" class="user-info">
+        <img class="avatar avatar-small" :src="userBaseLoginInfo.avatar_url" :title="userBaseLoginInfo.loginname"/>
+        <span>{{ userBaseLoginInfo.loginname }}</span>
       </section>
       <section v-else class="login">
         <button class="login-btn" @click="showInputTokenForm">登录</button>
@@ -31,6 +33,7 @@ export default {
 
   data() {
     return {
+      userBaseLoginInfo: new User().userBaseInfo,
       tabs: ['', 'ask', 'share', 'job', 'good', 'dev'],
       tabTexts: TAB_TEXTS
     }
@@ -40,6 +43,7 @@ export default {
     async _userLogin(accessToken) {
       let user = new User(accessToken)
       if (await user.login()) {
+        this.userBaseLoginInfo = user.userBaseInfo;
         await MessageBox.alert('登录成功', '提示信息')
       } else {
         await MessageBox.alert('登录失败', '提示信息')
@@ -58,12 +62,12 @@ export default {
         }
       } catch (e) {
         if ('cancel' !== e) { console.error(e) }
-        return 
+        return
       }
     },
 
     isUserLogin() {
-      return false
+      return new User().isLogin
     },
 
     hideSidebar() {
