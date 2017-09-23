@@ -16,6 +16,9 @@
           {{ tabTexts[tab] }}
         </router-link>
       </section>
+      <section v-if="isUserLogin()" class="logout">
+        <button class="logout-btn" @click="userLogout">登出</button>
+      </section>
     </section>
   </div>
 </template>
@@ -64,6 +67,14 @@ export default {
         if ('cancel' !== e) { console.error(e) }
         return
       }
+    },
+
+    userLogout() {
+      let user = new User()
+      user.logout()
+      this.hideSidebar()
+      MessageBox.alert('登出成功', '提示信息')
+      return
     },
 
     isUserLogin() {
