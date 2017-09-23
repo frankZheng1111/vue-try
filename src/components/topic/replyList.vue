@@ -3,7 +3,7 @@
     <ul class="reply-list">
       <li v-for="reply in replies" :key="reply.id" :id="reply.id" class="reply">
         <div class="replyer-info">
-          <img class="avatar avatar-small" :src="reply.author.avatar_url" :title="reply.author.loginname"/>
+          <img class="avatar avatar-small" v-lazy="reply.author.avatar_url" :title="reply.author.loginname"/>
           <div class="replyer-detail-info">
             <p>
               <span class="replyer.loginname">{{ reply.author.loginname }}</span>

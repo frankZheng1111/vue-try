@@ -8,15 +8,25 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import 'mint-ui/lib/style.css'
-
 import axios from 'axios'
+import VueLazyload from 'vue-lazyload'
+
+import 'mint-ui/lib/style.css'
+import imgLoading from './assets/img/img-loading.gif'
+import imgErr from './assets/img/img-err.png'
 
 // 需要跨域携带cookie时
 // axios.defaults.withCredentials = true
 axios.defaults.baseURL = API_URL
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 Vue.prototype.$axios = axios
+
+Vue.use(VueLazyload, {
+  preLoad: 1,
+  error: imgErr,
+  loading: imgLoading,
+  attempt: 1
+})
 
 Vue.config.productionTip = false
 

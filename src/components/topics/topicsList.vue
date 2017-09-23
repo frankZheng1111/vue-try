@@ -11,7 +11,7 @@
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">
-          <img class="avatar avatar-small" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
+          <img class="avatar avatar-small" v-lazy="topic.author.avatar_url" :title="topic.author.loginname"/>
           <div class="detail-info">
             <p>
               <span class="author-name" v-text="topic.author.loginname" ></span>
