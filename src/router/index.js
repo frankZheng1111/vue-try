@@ -7,7 +7,6 @@ import About from '../views/about.vue'
 
 Vue.use(Router)
 
-
 export default new Router({
   mode: 'history',
 
@@ -23,13 +22,17 @@ export default new Router({
       //
       path: '/topic/:id',
       name: 'topic',
-      meta: {},
+      meta: {
+        title: '主题'
+      },
       component: Topic
     },
     {
       path: '/about',
       name: 'about',
-      meta: {},
+      meta: {
+        title: '关于'
+      },
       component: About
     },
     { path: '*', redirect: '/topics' }

@@ -23,23 +23,16 @@ export default {
 
   computed: {
     headerBarTitle() {
-      switch(this.$route.name) {
-        case 'topics':
-          return TAB_TEXTS[this.$route.query.tab || '']
-        case 'topic':
-          return '主题'
-        case 'about':
-          return '关于'
-        default:
-          return ''
+      if ('topics' === this.$route.name) {
+        return TAB_TEXTS[this.$route.query.tab || '']
       }
+      return this.$route.meta.title || '其他'
     }
   },
 
   components: {
     'sidebar': Sidebar
   },
-
 
   methods: {
     toggleSidebar() {
