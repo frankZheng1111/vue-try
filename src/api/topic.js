@@ -3,7 +3,7 @@
 import axios from 'axios'
 
 export function getTopics({ page = 1, limit = 30, tab } = {}) {
-  const VALID_TABS = ['ask', 'share', 'job', 'good', 'dev'];
+  const VALID_TABS = ['ask', 'share', 'job', 'good', 'dev']
   let queryParams = {
     page: page,
     limit: limit

@@ -18,7 +18,7 @@ import imgErr from './assets/img/img-err.png'
 // 需要跨域携带cookie时
 // axios.defaults.withCredentials = true
 axios.defaults.baseURL = API_URL
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 Vue.prototype.$axios = axios
 
 Vue.use(VueLazyload, {

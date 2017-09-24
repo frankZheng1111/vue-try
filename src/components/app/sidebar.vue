@@ -46,7 +46,7 @@ export default {
     async _userLogin(accessToken) {
       let user = new User(accessToken)
       if (await user.login()) {
-        this.userBaseLoginInfo = user.userBaseInfo;
+        this.userBaseLoginInfo = user.userBaseInfo
         await MessageBox.alert('登录成功', '提示信息')
       } else {
         await MessageBox.alert('登录失败', '提示信息')

@@ -13,10 +13,10 @@ export default new Vuex.Store({
       return state.lastTopicsTab
     }
   },
-   mutations: {
-     setLastTopicsTab (state, topics) {
-       state.lastTopicsTab = topics.tab
-     }
-   },
+  mutations: {
+    setLastTopicsTab (state, topics) {
+      state.lastTopicsTab = topics.tab
+    }
+  },
   strict: debug,
 })

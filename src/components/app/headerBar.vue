@@ -41,7 +41,7 @@ export default {
 
   methods: {
     toggleSidebar() {
-      this.activeSidebar = !this.activeSidebar;
+      this.activeSidebar = !this.activeSidebar
     }
   }
 }

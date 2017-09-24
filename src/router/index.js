@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import store from '../store'
-
-import topics from '../views/topics.vue'
-import topic from '../views/topic.vue'
+import Topics from '../views/topics.vue'
+import Topic from '../views/topic.vue'
+import About from '../views/topic.vue'
 
 Vue.use(Router)
 
@@ -17,7 +16,7 @@ export default new Router({
       path: '/topics',
       name: 'topics',
       meta: {},
-      component: topics
+      component: Topics
     },
     {
       // name属性可以在后续使用这条路径规则的时候，直接引用。
@@ -25,7 +24,13 @@ export default new Router({
       path: '/topic/:id',
       name: 'topic',
       meta: {},
-      component: topic
+      component: Topic
+    },
+    {
+      path: '/about',
+      name: 'about',
+      meta: {},
+      component: About
     },
     { path: '*', redirect: '/topics' }
   ],
