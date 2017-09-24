@@ -19,6 +19,11 @@
       <section v-if="isUserLogin()" class="logout">
         <button class="logout-btn" @click="userLogout">登出</button>
       </section>
+      <section class="about">
+        <router-link :to="{ name: 'about' }" @click.native="hideSidebar">
+          <button class="about-btn">关于</button>
+        </router-link>
+      </section>
     </section>
   </div>
 </template>
