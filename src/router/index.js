@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Topics from '../views/topics.vue'
 import Topic from '../views/topic.vue'
-import About from '../views/topic.vue'
+import About from '../views/about.vue'
 
 Vue.use(Router)
 

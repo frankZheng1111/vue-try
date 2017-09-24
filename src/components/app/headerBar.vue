@@ -28,6 +28,8 @@ export default {
           return TAB_TEXTS[this.$route.query.tab || '']
         case 'topic':
           return '主题'
+        case 'about':
+          return '关于'
         default:
           return ''
       }

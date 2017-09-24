@@ -1,0 +1,26 @@
+@import '../common/color.scss';
+@import '../common/widget.scss';
+
+.about-page {
+  padding: 1.5rem;
+  color: $purple;
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    padding-left: 3rem;
+  }
+  margin-top: 1rem;
+  .back-btn {
+    @include badge-sm;
+    display: block;
+    background-color: $blue;
+    width: 30%;
+    margin: 0 auto;
+    min-width: 150px;
+    border: none;
+  }
+}
