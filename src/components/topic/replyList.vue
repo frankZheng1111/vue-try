@@ -12,7 +12,7 @@
             <p>
               <time>{{ replyCreatedAt(reply) }}</time>
               <span class="reply-action">
-                <span>赞({{ reply.ups.length }})</span>
+                <span class="up-reply" :class="{ 'uped-reply': reply.is_uped }">赞({{ reply.ups.length }})</span>
                 <span>回复</span>
               </span>
             </p>

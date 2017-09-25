@@ -19,6 +19,11 @@
             margin: 0.63rem;
             justify-content: space-between;
           }
+          .reply-action {
+            .uped-reply {
+              color: $blue
+            }
+          }
         }
         .avatar.avatar-small {
           margin-right: 0.55rem;

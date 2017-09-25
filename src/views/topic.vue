@@ -16,6 +16,7 @@
 import MainTopic from '../components/topic/mainTopic'
 import ReplyList from '../components/topic/replyList'
 import * as api from '../api'
+import User from '../libs/user'
 
 export default {
   name: 'topic',
@@ -37,7 +38,12 @@ export default {
 
   methods: {
     async renderTopicById() {
-      let { data: { data: topic } } = await api.getTopicById(this.topicId)
+      let topicOption = {}
+      let user = new User()
+      if (user.isLogin) {
+        topicOption.accessToken = user.accessToken
+      }
+      let { data: { data: topic } } = await api.getTopicById(this.topicId, topicOption)
       this.topic = topic
       return
     }
