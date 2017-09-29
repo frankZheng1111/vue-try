@@ -1,0 +1,22 @@
+@import '../../common/color';
+
+.topic-actions {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  padding: 0;
+  display: flex;
+  button {
+    flex: 1;
+    margin: 0;
+    font-size: 1.6rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid $lite-grey;
+    background-color: white;
+    color: $purple;
+  }
+  .cancel-collect {
+    border-color: $blue;
+    color: $blue;
+  }
+}

@@ -6,12 +6,7 @@
       <span>{{ topic.replyCount }}</span>
       条回复
     </h3>
-    <reply-list :replies="topic.replies"></reply-list>
-    <div class="topic-actions">
-      <button class="cancel-collect" v-if="topic.isCollect">取消收藏</button>
-      <button v-else>收藏主题</button>
-      <button class="reply-topic">回复主题</button>
-    </div>
+    <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>
 
@@ -20,6 +15,7 @@
 
 import MainTopic from '../components/topic/mainTopic'
 import ReplyList from '../components/topic/replyList'
+import TopicActions from '../components/topic/topicActions'
 import * as api from '../api'
 import User from '../libs/user'
 
@@ -34,7 +30,8 @@ export default {
 
   components: {
     'main-topic': MainTopic,
-    'reply-list': ReplyList
+    'reply-list': ReplyList,
+    'topic-actions': TopicActions
   },
 
   created() {
