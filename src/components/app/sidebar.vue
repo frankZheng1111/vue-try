@@ -53,6 +53,7 @@ export default {
       if (await user.login()) {
         this.userBaseLoginInfo = user.userBaseInfo
         await MessageBox.alert('登录成功', '提示信息')
+        window.location.reload()
       } else {
         await MessageBox.alert('登录失败', '提示信息')
       }
@@ -74,11 +75,12 @@ export default {
       }
     },
 
-    userLogout() {
+    async userLogout() {
       let user = new User()
       user.logout()
       this.hideSidebar()
-      MessageBox.alert('登出成功', '提示信息')
+      await MessageBox.alert('登出成功', '提示信息')
+      window.location.reload()
       return
     },
 
