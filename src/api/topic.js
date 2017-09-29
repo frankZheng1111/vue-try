@@ -1,6 +1,11 @@
 'use strict'
 
 import axios from 'axios'
+import humps from 'humps'
+
+const $axios = async function(options) {
+  return humps.camelizeKeys(await axios(options))
+}
 
 export function getTopics({ page = 1, limit = 30, tab } = {}) {
   const VALID_TABS = ['ask', 'share', 'job', 'good', 'dev']
@@ -9,7 +14,7 @@ export function getTopics({ page = 1, limit = 30, tab } = {}) {
     limit: limit
   }
   if (tab && VALID_TABS.includes(tab)) { queryParams.tab = tab }
-  return axios({
+  return $axios({
     method: 'get',
     url: '/topics',
     params: queryParams
@@ -19,7 +24,7 @@ export function getTopics({ page = 1, limit = 30, tab } = {}) {
 export function getTopicById(id, { accessToken = null } = {}) {
   let queryParams = {}
   if (accessToken) { queryParams.accesstoken = accessToken }
-  return axios({
+  return $axios({
     method: 'get',
     url: `/topic/${id}`,
     params: queryParams
@@ -28,12 +33,12 @@ export function getTopicById(id, { accessToken = null } = {}) {
 
 export function collectTopic(topicId, accessToken) {
   let bodyParams = {
-    topic_id: topicId,
+    topicId: topicId,
     accesstoken: accessToken
   }
-  return axios({
+  return $axios({
     method: 'post',
     url: '/topic_collect/collect',
-    data: bodyParams
+    data: humps.decamelizeKeys(bodyParams)
   })
 }

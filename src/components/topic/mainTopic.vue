@@ -1,7 +1,7 @@
 <template>
   <div v-if="topic" class="main-topic">
     <section class="topic-info">
-      <img class="avatar avatar-small pull-left" :src="topic.author.avatar_url" :title="topic.author.loginname"/>
+      <img class="avatar avatar-small pull-left" :src="topic.author.avatarUrl" :title="topic.author.loginname"/>
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
@@ -9,7 +9,7 @@
         </p>
         <p>
         <time>{{ `发布于${topic.computedAttrs.createTimeFromNow}` }}</time>
-        <span>{{ `${topic.visit_count}次浏览` }}</span>
+        <span>{{ `${topic.visitCount}次浏览` }}</span>
         </p>
       </div>
     </section>

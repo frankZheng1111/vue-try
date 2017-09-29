@@ -3,7 +3,7 @@
     <ul class="reply-list">
       <li v-for="reply in replies" :key="reply.id" :id="reply.id" class="reply">
         <div class="replyer-info">
-          <img class="avatar avatar-small" v-lazy="reply.author.avatar_url" :title="reply.author.loginname"/>
+          <img class="avatar avatar-small" v-lazy="reply.author.avatarUrl" :title="reply.author.loginname"/>
           <div class="replyer-detail-info">
             <p>
               <span class="replyer.loginname">{{ reply.author.loginname }}</span>
@@ -12,7 +12,7 @@
             <p>
               <time>{{ replyCreatedAt(reply) }}</time>
               <span class="reply-action">
-                <span class="up-reply" :class="{ 'uped-reply': reply.is_uped }">赞({{ reply.ups.length }})</span>
+                <span class="up-reply" :class="{ 'uped-reply': reply.isUped }">赞({{ reply.ups.length }})</span>
                 <span>回复</span>
               </span>
             </p>
@@ -39,7 +39,7 @@ export default {
 
   methods: {
     replyCreatedAt(reply) {
-      return new TimeUtil(reply.create_at).formatTime()
+      return new TimeUtil(reply.createAt).formatTime()
     }
   }
 }

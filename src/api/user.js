@@ -1,9 +1,14 @@
 'use strict'
 
 import axios from 'axios'
+import humps from 'humps'
+
+const $axios = async function(options) {
+  return humps.camelizeKeys(await axios(options))
+}
 
 export function userLogin(accessToken) {
-  return axios({
+  return $axios({
     method: 'post',
     url: '/accesstoken',
     data: {
@@ -13,7 +18,7 @@ export function userLogin(accessToken) {
 }
 
 export function getUserProfile(loginName) {
-  return axios({
+  return $axios({
     method: 'get',
     url: `/user/${loginName}`
   })

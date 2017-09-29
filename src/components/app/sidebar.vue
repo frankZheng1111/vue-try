@@ -5,7 +5,7 @@
     </transition>
     <section :class="{ sidebar: true, show: activeSidebar }">
       <section v-if="isUserLogin()" class="user-info">
-        <img class="avatar avatar-small" :src="userBaseLoginInfo.avatar_url" :title="userBaseLoginInfo.loginname"/>
+        <img class="avatar avatar-small" :src="userBaseLoginInfo.avatarUrl" :title="userBaseLoginInfo.loginname"/>
         <span>{{ userBaseLoginInfo.loginname }}</span>
       </section>
       <section v-else class="login">

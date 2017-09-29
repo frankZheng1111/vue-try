@@ -11,13 +11,13 @@
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">
-          <img class="avatar avatar-small" v-lazy="topic.author.avatar_url" :title="topic.author.loginname"/>
+          <img class="avatar avatar-small" v-lazy="topic.author.avatarUrl" :title="topic.author.loginname"/>
           <div class="detail-info">
             <p>
               <span class="author-name" v-text="topic.author.loginname" ></span>
               <span class="topic-count">
-                <b class="topic-reply-count" v-text="topic.reply_count"></b>
-                {{ `/ ${topic.visit_count}` }}
+                <b class="topic-reply-count" v-text="topic.replyCount"></b>
+                {{ `/ ${topic.visitCount}` }}
               </span>
             </p>
             <p>

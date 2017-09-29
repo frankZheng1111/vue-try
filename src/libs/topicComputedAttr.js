@@ -19,12 +19,12 @@ export default class TopicComputedAttr {
 
   get createTimeFromNow() {
     let topic = this.data
-    return new TimeUtil(topic.create_at).timeFromNow
+    return new TimeUtil(topic.createAt).timeFromNow
   }
 
   get lastReplyTimeFromNow() {
     let topic = this.data
-    return new TimeUtil(topic.last_reply_at).timeFromNow
+    return new TimeUtil(topic.lastReplyAt).timeFromNow
   }
 
   get mainTab() {
