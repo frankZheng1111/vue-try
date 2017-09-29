@@ -34,5 +34,8 @@
         font-size: 1.5rem;
       }
     }
+    .reply:nth-last-of-type(1) {
+      border-bottom: none;
+    }
   }
 }
