@@ -25,3 +25,15 @@ export function getTopicById(id, { accessToken = null } = {}) {
     params: queryParams
   })
 }
+
+export function collectTopic(topicId, accessToken) {
+  let bodyParams = {
+    topic_id: topicId,
+    accesstoken: accessToken
+  }
+  return axios({
+    method: 'post',
+    url: '/topic_collect/collect',
+    data: bodyParams
+  })
+}
