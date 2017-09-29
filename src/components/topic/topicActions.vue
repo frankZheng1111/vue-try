@@ -9,6 +9,9 @@
 <script>
 'use strict'
 
+import * as api from '../../api'
+import User from '../../libs/user'
+
 export default {
   name: 'topicActions',
 
@@ -18,7 +21,12 @@ export default {
     }
   },
 
-  props: ['topic']
+  props: ['topic'],
+
+  methods: {
+    deCollectTopic() {
+    }
+  }
 }
 </script>
 
