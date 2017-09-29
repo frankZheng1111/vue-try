@@ -7,6 +7,11 @@
       条回复
     </h3>
     <reply-list :replies="topic.replies"></reply-list>
+    <div class="topic-actions">
+      <button class="cancel-collect" v-if="topic.is_collect">取消收藏</button>
+      <button v-else>收藏主题</button>
+      <button class="reply-topic">回复主题</button>
+    </div>
   </div>
 </template>
 
