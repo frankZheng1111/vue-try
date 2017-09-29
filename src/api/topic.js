@@ -42,3 +42,15 @@ export function collectTopic(topicId, accessToken) {
     data: humps.decamelizeKeys(bodyParams)
   })
 }
+
+export function deCollectTopic(topicId, accessToken) {
+  let bodyParams = {
+    topicId: topicId,
+    accesstoken: accessToken
+  }
+  return $axios({
+    method: 'post',
+    url: '/topic_collect/de_collect',
+    data: humps.decamelizeKeys(bodyParams)
+  })
+}
