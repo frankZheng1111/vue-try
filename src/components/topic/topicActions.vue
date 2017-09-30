@@ -9,9 +9,8 @@
 <script>
 'use strict'
 
-import { MessageBox } from 'mint-ui'
 import * as api from '../../api'
-import User from '../../libs/user'
+import * as UserHelpers from '../../helpers/user'
 
 export default {
   name: 'topicActions',
@@ -28,17 +27,9 @@ export default {
   },
 
   methods: {
-    async _userAccessToken() {
-      let user = new User()
-      if (!user.isLogin) {
-        await MessageBox.alert('该操作需要登录', '提示信息')
-        return false
-      }
-      return user.accessToken
-    },
 
     async deCollectTopic() {
-      let accessToken = await this._userAccessToken()
+      let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
       this.topic.isCollect = false
       await api.deCollectTopic(this.topic.id, accessToken)
@@ -46,7 +37,7 @@ export default {
     },
 
     async collectTopic() {
-      let accessToken = await this._userAccessToken()
+      let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
       this.topic.isCollect = true
       await api.collectTopic(this.topic.id, accessToken)
