@@ -30,7 +30,6 @@
 <script>
 'use strict'
 
-import Vue from 'vue'
 import { MessageBox } from 'mint-ui'
 
 import TAB_TEXTS from '../../config/tabTexts'
