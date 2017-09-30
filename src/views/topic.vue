@@ -6,6 +6,7 @@
       <span>{{ topic.replyCount }}</span>
       条回复
     </h3>
+    <reply-list :replies="topic.replies"></reply-list>
     <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>
