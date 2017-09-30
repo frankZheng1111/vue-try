@@ -1,46 +1,29 @@
 <template>
   <div v-if="replies && replies.length" class="topic-replies">
     <ul class="reply-list">
-      <li v-for="reply in replies" :key="reply.id" :id="reply.id" class="reply">
-        <div class="replyer-info">
-          <img class="avatar avatar-small" v-lazy="reply.author.avatarUrl" :title="reply.author.loginname"/>
-          <div class="replyer-detail-info">
-            <p>
-              <span class="replyer.loginname">{{ reply.author.loginname }}</span>
-              <span>{{ `#${replies.indexOf(reply) + 1}` }}</span>
-            </p>
-            <p>
-              <time>{{ replyCreatedAt(reply) }}</time>
-              <span class="reply-action">
-                <span class="up-reply" :class="{ 'uped-reply': reply.isUped }">赞({{ reply.ups.length }})</span>
-                <span>回复</span>
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="reply-content markdown-body" v-html="reply.content">
-        </div>
-      </li>
+      <reply v-for="reply in replies"
+             :key="reply.id"
+             :reply="reply"
+             :replyIndex="`#${replies.indexOf(reply) + 1}`"></reply>
     </ul>
   </div>
 </template>
 
 <script>
 'use strict'
-import { TimeUtil } from '../../libs/utils'
+
+import Reply from './reply.vue'
 
 export default {
   name: 'replyList',
-  props: ['replies'],
-
-  data() {
-    return {}
+  props: {
+    replies: {
+      default: null
+    }
   },
 
-  methods: {
-    replyCreatedAt(reply) {
-      return new TimeUtil(reply.createAt).formatTime()
-    }
+  components: {
+    'reply': Reply
   }
 }
 </script>
