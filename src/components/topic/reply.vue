@@ -8,7 +8,7 @@
         <span>{{ replyIndex }}</span>
         </p>
         <p>
-        <time>{{ replyCreatedAt(reply) }}</time>
+        <time>{{ replyCreatedAt }}</time>
         <span class="reply-action">
           <span class="up-reply"
                 :class="{ 'uped-reply': reply.isUped }"
@@ -35,6 +35,12 @@ export default {
 
   props: ['reply', 'replyIndex'],
 
+  computed: {
+    replyCreatedAt() {
+      return new TimeUtil(this.reply.createAt).formatTime()
+    }
+  },
+
   methods: {
     async upOrDownReply() {
       let accessToken = await UserHelpers.getCurrentAccessToken()
@@ -46,10 +52,6 @@ export default {
         this.reply.ups.length --
       }
       await api.upReply(this.reply.id, accessToken)
-    },
-
-    replyCreatedAt(reply) {
-      return new TimeUtil(reply.createAt).formatTime()
     }
   }
 }
