@@ -10,7 +10,9 @@
         <p>
         <time>{{ replyCreatedAt(reply) }}</time>
         <span class="reply-action">
-          <span class="up-reply" :class="{ 'uped-reply': reply.isUped }">赞({{ reply.ups.length }})</span>
+          <span class="up-reply"
+                :class="{ 'uped-reply': reply.isUped }"
+                @click="upOrDownReply">赞({{ reply.ups.length }})</span>
           <span>回复</span>
         </span>
         </p>
@@ -24,6 +26,8 @@
 <script>
 'use strict'
 
+import * as api from '../../api'
+import * as UserHelpers from '../../helpers/user'
 import { TimeUtil } from '../../libs/utils'
 
 export default {
@@ -32,6 +36,18 @@ export default {
   props: ['reply', 'replyIndex'],
 
   methods: {
+    async upOrDownReply() {
+      let accessToken = await UserHelpers.getCurrentAccessToken()
+      if (!accessToken) { return }
+      this.reply.isUped = !this.reply.isUped
+      if (this.reply.isUped) {
+        this.reply.ups.length ++
+      } else {
+        this.reply.ups.length --
+      }
+      await api.upReply(this.reply.id, accessToken)
+    },
+
     replyCreatedAt(reply) {
       return new TimeUtil(reply.createAt).formatTime()
     }

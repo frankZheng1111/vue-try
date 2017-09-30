@@ -8,6 +8,7 @@
     list-style: none;
     .avatar.avatar-small {
       @include circle-avatar(5rem);
+      margin-right: 0.5rem;
     }
     border-bottom: 1px solid #ddd;
     padding: 1rem 2.5rem;

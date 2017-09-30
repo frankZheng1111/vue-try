@@ -27,7 +27,6 @@ export default {
   },
 
   methods: {
-
     async deCollectTopic() {
       let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
