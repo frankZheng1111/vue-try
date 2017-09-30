@@ -18,11 +18,14 @@ export default {
 
   data() {
     return {
-      topic: ''
     }
   },
 
-  props: ['topic'],
+  props: {
+    topic: {
+      default: ''
+    }
+  },
 
   methods: {
     async _userAccessToken() {
