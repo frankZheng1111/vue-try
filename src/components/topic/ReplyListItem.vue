@@ -31,7 +31,7 @@ import * as UserHelpers from '../../helpers/user'
 import { TimeUtil } from '../../libs/utils'
 
 export default {
-  name: 'reply',
+  name: 'ReplyListItem',
 
   props: ['reply', 'replyIndex'],
 

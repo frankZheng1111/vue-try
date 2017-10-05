@@ -14,9 +14,9 @@
 <script>
 'use strict'
 
-import MainTopic from '../components/topic/mainTopic'
-import ReplyList from '../components/topic/replyList'
-import TopicActions from '../components/topic/topicActions'
+import MainTopic from '../components/topic/MainTopic'
+import ReplyList from '../components/topic/ReplyList'
+import TopicActions from '../components/topic/TopicActions'
 import * as api from '../api'
 import User from '../libs/user'
 
