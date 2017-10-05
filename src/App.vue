@@ -10,7 +10,7 @@
 <script>
 'use strict'
 
-import HeaderBar from './components/app/headerBar'
+import HeaderBar from './components/app/HeaderBar'
 
 export default {
   name: 'app',
