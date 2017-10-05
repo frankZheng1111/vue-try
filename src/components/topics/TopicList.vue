@@ -41,7 +41,7 @@ import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 Vue.use(InfiniteScroll)
 
 export default {
-  name: 'topicsList',
+  name: 'TopicList',
   data() {
     return {
     }
