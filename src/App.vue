@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       topicsTab: this.$route.query.tab || '',
-      includeComponents: 'topics'
+      includeComponents: 'Topics'
     }
   },
 

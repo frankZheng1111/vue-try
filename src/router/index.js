@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Topics from '../views/topics.vue'
-import Topic from '../views/topic.vue'
-import About from '../views/about.vue'
+import Topics from '../views/Topics.vue'
+import Topic from '../views/Topic.vue'
+import About from '../views/About.vue'
 
 Vue.use(Router)
 
