@@ -7,7 +7,7 @@
       条回复
     </h3>
     <reply-list :replies="topic.replies"></reply-list>
-    <reply-editor></reply-editor>
+    <reply-editor id="reply-editor"></reply-editor>
     <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>

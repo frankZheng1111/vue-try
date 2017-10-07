@@ -1,0 +1,11 @@
+@import '../../common/color';
+
+.reply-editor {
+  .reply-editor-title {
+    padding: 1.3rem;
+    border-bottom: 1px solid $lite-grey;
+    border-top: 1px solid $lite-grey;
+    font-size: 1.9rem;
+    color: $purple;
+  }
+}

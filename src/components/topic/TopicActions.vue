@@ -2,7 +2,7 @@
   <div class="topic-actions">
     <button class="cancel-collect" v-if="topic.isCollect" @click="deCollectTopic">取消收藏</button>
     <button v-else @click="collectTopic">收藏主题</button>
-    <button class="reply-topic">回复主题</button>
+    <button class="reply-topic mobile-reply-topic" @click="moveToBottom">回复主题</button>
   </div>
 </template>
 
@@ -41,6 +41,10 @@ export default {
       this.topic.isCollect = true
       await api.collectTopic(this.topic.id, accessToken)
       return
+    },
+
+    moveToBottom() {
+      return window.scroll(0,document.body.scrollHeight)
     }
   }
 }

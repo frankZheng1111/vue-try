@@ -1,5 +1,8 @@
 <template>
   <div class="reply-editor">
+    <h3 class="reply-editor-title">
+      添加回复
+    </h3>
     relpy-editor
   </div>
 </template>
@@ -27,4 +30,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../../style/components/topic/reply-editor";
 </style>
