@@ -57,6 +57,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "../../style/components/topic/reply";
 </style>
