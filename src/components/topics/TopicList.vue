@@ -74,5 +74,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../style/components/topics/topicsList";
+  @import "../../style/components/topics/topics-list";
 </style>

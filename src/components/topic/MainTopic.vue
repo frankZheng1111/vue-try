@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../style/components/topic/mainTopic";
+  @import "../../style/components/topic/main-topic";
 </style>

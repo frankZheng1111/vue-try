@@ -4,14 +4,14 @@
       <span class="sidebar-list" @click="toggleSidebar">菜单</span>
       <h3>{{ headerBarTitle }}</h3>
     </header>
-    <sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></sidebar>
+    <header-bar-sidebar :activeSidebar="activeSidebar" @hideSidebar="toggleSidebar"></header-bar-sidebar>
   </div>
 </template>
 <script>
 'use strict'
 
 import TAB_TEXTS from '../../config/tabTexts'
-import Sidebar from './SideBar'
+import HeaderBarSidebar from './HeaderBarSidebar'
 
 export default {
   name: 'HeaderBar',
@@ -32,7 +32,7 @@ export default {
   },
 
   components: {
-    'sidebar': Sidebar
+    'header-bar-sidebar': HeaderBarSidebar
   },
 
   methods: {
@@ -44,5 +44,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../style/components/app/headerBar";
+  @import "../../style/components/app/header-bar";
 </style>

@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../style/components/topic/replyList";
+  @import "../../style/components/topic/reply-list";
 </style>

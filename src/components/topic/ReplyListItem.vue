@@ -58,5 +58,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../style/components/topic/reply";
+  @import "../../style/components/topic/reply-list-item";
 </style>
