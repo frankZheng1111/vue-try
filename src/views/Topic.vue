@@ -7,6 +7,7 @@
       条回复
     </h3>
     <reply-list :replies="topic.replies"></reply-list>
+    <reply-editor></reply-editor>
     <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>
@@ -17,6 +18,8 @@
 import MainTopic from '../components/topic/MainTopic'
 import ReplyList from '../components/topic/ReplyList'
 import TopicActions from '../components/topic/TopicActions'
+import ReplyEditor from '../components/topic/ReplyEditor'
+
 import * as api from '../api'
 import User from '../libs/user'
 
@@ -32,7 +35,8 @@ export default {
   components: {
     'main-topic': MainTopic,
     'reply-list': ReplyList,
-    'topic-actions': TopicActions
+    'topic-actions': TopicActions,
+    'reply-editor': ReplyEditor
   },
 
   created() {
