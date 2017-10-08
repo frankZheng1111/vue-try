@@ -3,7 +3,7 @@
     <h3 class="reply-editor-title">
       添加回复
     </h3>
-    <text-editor @submitContent="submitReply"></text-editor>
+    <text-editor @submitContent="submitReply" :initContent="initContent" ref="textEditor"></text-editor>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
 
   data() {
     return {
+      initContent: ''
     }
   },
 
@@ -38,8 +39,8 @@ export default {
       let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
       await api.addReply(this.topicId, content, accessToken)
-      window.location.reload()
-      return
+      this.$refs.textEditor.clearContent()
+      this.$emit('reloadTopic')
     }
 
   }

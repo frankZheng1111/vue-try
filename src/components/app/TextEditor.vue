@@ -29,6 +29,11 @@ export default {
       return this.$emit('submitContent', this.content)
     },
 
+    clearContent() {
+      this.content = ''
+      return
+    },
+
     isUserLogin() {
       return new User().isLogin
     },

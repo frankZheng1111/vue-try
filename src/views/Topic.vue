@@ -7,7 +7,7 @@
       条回复
     </h3>
     <reply-list :replies="topic.replies"></reply-list>
-    <reply-editor v-if="this.isUserLogin()" id="reply-editor" :topicId="this.topicId"></reply-editor>
+    <reply-editor v-if="this.isUserLogin()" id="reply-editor" :topicId="this.topicId" @reloadTopic="renderTopicById"></reply-editor>
     <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>
