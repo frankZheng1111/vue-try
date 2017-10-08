@@ -5,10 +5,10 @@
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
-        <span :class="`${topic.computedAttrs.mainTab}-tag`" class="topic-tab">{{ topic.computedAttrs.tagText }}</span>
+        <span :class="`${computedAttrs.mainTab}-tag`" class="topic-tab">{{ computedAttrs.tagText }}</span>
         </p>
         <p>
-        <time>{{ `发布于${topic.computedAttrs.createTimeFromNow}` }}</time>
+        <time>{{ `发布于${computedAttrs.createTimeFromNow}` }}</time>
         <span>{{ `${topic.visitCount}次浏览` }}</span>
         </p>
       </div>
@@ -33,9 +33,11 @@ export default {
 
   props: ['topic'],
 
-  created () {
-    if (this.topic) {
-      this.topic.computedAttrs = new TopicComputedAttr(this.topic)
+  computed: {
+    computedAttrs() {
+      if (!this.topic) { return {} }
+      console.log('2121212121', new TopicComputedAttr(this.topic).mainTab)
+      return new TopicComputedAttr(this.topic)
     }
   }
 }
