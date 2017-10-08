@@ -7,7 +7,7 @@
       条回复
     </h3>
     <reply-list :replies="topic.replies"></reply-list>
-    <reply-editor id="reply-editor"></reply-editor>
+    <reply-editor v-if="this.isUserLogin()" id="reply-editor"></reply-editor>
     <topic-actions :topic="topic"></topic-actions>
   </div>
 </template>
@@ -44,6 +44,11 @@ export default {
   },
 
   methods: {
+    isUserLogin() {
+      let user = new User()
+      return user.isLogin
+    },
+
     async renderTopicById() {
       let topicOption = {}
       let user = new User()
