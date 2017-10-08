@@ -26,8 +26,7 @@ export default {
 
   methods: {
     submitContent() {
-      console.log(this.content)
-      return this.$emit('submitContent')
+      return this.$emit('submitContent', this.content)
     },
 
     isUserLogin() {

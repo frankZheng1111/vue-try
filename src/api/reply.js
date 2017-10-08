@@ -19,7 +19,7 @@ export function upReply(replyId, accessToken) {
 
 export function addReply(topicId, content, accessToken, replyId) {
   let body = {
-    accesstoken: accesstoken,
+    accesstoken: accessToken,
     content: content
   }
   if (replyId) { body.replyId = replyId }
