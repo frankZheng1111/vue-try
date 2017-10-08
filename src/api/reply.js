@@ -4,7 +4,7 @@ import axios from 'axios'
 import humps from 'humps'
 
 const $axios = async function(options) {
-  return humps.camelizeKeys(await axios(options))
+  return humps.camelizeKeys(await axios(humps.depascalizeKeys(options)))
 }
 
 export function upReply(replyId, accessToken) {
@@ -17,3 +17,15 @@ export function upReply(replyId, accessToken) {
   })
 }
 
+export function addReply(topicId, content, accessToken, replyId) {
+  let body = {
+    accesstoken: accesstoken,
+    content: content
+  }
+  if (replyId) { body.replyId = replyId }
+  return $axios({
+    method: 'post',
+    url: `/topic/${topicId}/replies`,
+    data: body
+  })
+}

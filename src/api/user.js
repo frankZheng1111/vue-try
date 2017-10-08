@@ -4,7 +4,7 @@ import axios from 'axios'
 import humps from 'humps'
 
 const $axios = async function(options) {
-  return humps.camelizeKeys(await axios(options))
+  return humps.camelizeKeys(await axios(humps.depascalizeKeys(options)))
 }
 
 export function userLogin(accessToken) {
