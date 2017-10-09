@@ -36,7 +36,6 @@ export default {
   computed: {
     computedAttrs() {
       if (!this.topic) { return {} }
-      console.log('2121212121', new TopicComputedAttr(this.topic).mainTab)
       return new TopicComputedAttr(this.topic)
     }
   }
