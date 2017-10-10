@@ -20,7 +20,7 @@ export default {
 
   data() {
     return {
-      content: '' || this.initContent
+      content: this.initContent
     }
   },
 
