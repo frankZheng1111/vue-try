@@ -29,18 +29,35 @@ export default {
 
   data() {
     return {
-      initContent: ''
+      initContent: '',
+      replyId: null
     }
   },
 
   methods: {
+    _unshiftContent(content) {
+      this.$refs.textEditor.unshiftContent(content)
+      return
+    },
+
+    _initReplyEditor() {
+      this.$refs.textEditor.clearContent()
+      this.replyId = null
+    },
+
     async submitReply(content) {
       if (!this.topicId) { return }
       let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
-      await api.addReply(this.topicId, content, accessToken)
-      this.$refs.textEditor.clearContent()
+      await api.addReply(this.topicId, content, accessToken, this.replyId)
+      _initReplyEditor()
       this.$emit('reloadTopic')
+    },
+
+    setReplyTarget(replyId, loginname) {
+      this.replyId = replyId
+      this.$refs.textEditor.setContent()
+      return
     }
 
   }

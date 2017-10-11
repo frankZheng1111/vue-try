@@ -13,7 +13,8 @@
           <span class="up-reply"
                 :class="{ 'uped-reply': reply.isUped }"
                 @click="upOrDownReply">赞({{ reply.ups.length }})</span>
-          <span>回复</span>
+          <span class="reply-this-reply"
+                @click="setThisReplyInfo">回复</span>
         </span>
         </p>
       </div>
@@ -52,6 +53,11 @@ export default {
         this.reply.ups.length --
       }
       await api.upReply(this.reply.id, accessToken)
+    },
+
+    setThisReplyInfo() {
+      this.$emit('setThisReplyInfoInReplyEditor', this.reply.id, this.reply.author.loginname)
+      return
     }
   }
 }

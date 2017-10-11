@@ -39,6 +39,11 @@ export default {
       return
     },
 
+    setContent(content) {
+      this.content = content
+      return
+    },
+
     isUserLogin() {
       return new User().isLogin
     },

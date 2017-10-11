@@ -6,9 +6,15 @@
       <span>{{ topic.replyCount }}</span>
       条回复
     </h3>
-    <reply-list :replies="topic.replies"></reply-list>
-    <reply-editor v-if="this.isUserLogin()" id="reply-editor" :topicId="this.topicId" @reloadTopic="renderTopicById"></reply-editor>
-    <topic-actions :topic="topic"></topic-actions>
+    <reply-list :replies="topic.replies"
+                @setThisReplyInfoInReplyEditor="setThisReplyInfoInReplyEditor"
+    ></reply-list>
+    <reply-editor ref="replyEditor"
+                  v-if="this.isUserLogin()"
+                  id="reply-editor"
+                  :topicId="this.topicId"
+                  @reloadTopic="renderTopicById"></reply-editor>
+    <topic-actions :topic="topic" ref="topicActions"></topic-actions>
   </div>
 </template>
 
@@ -58,6 +64,12 @@ export default {
       let { data: { data: topic } } = await api.getTopicById(this.topicId, topicOption)
       this.topic = topic
       return
+    },
+
+    setThisReplyInfoInReplyEditor(replyId, loginname) {
+      console.log(replyId, loginname)
+      this.$refs.topicActions.moveToReplyEditor()
+      this.$refs.replyEditor.setReplyTarget(replyId, loginname)
     }
   }
 }
