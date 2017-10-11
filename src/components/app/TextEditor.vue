@@ -8,6 +8,7 @@
 'use strict'
 
 import User from '../../libs/user'
+import { MessageBox } from 'mint-ui'
 
 export default {
   name: 'TextEditor',
@@ -25,7 +26,11 @@ export default {
   },
 
   methods: {
-    submitContent() {
+    async submitContent() {
+      if (!this.content) {
+        await MessageBox.alert('内容不能为空', '提示信息')
+        return false
+      }
       return this.$emit('submitContent', this.content)
     },
 
