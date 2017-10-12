@@ -35,11 +35,6 @@ export default {
   },
 
   methods: {
-    _unshiftContent(content) {
-      this.$refs.textEditor.unshiftContent(content)
-      return
-    },
-
     _initReplyEditor() {
       this.$refs.textEditor.clearContent()
       this.replyId = null
@@ -50,13 +45,15 @@ export default {
       let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
       await api.addReply(this.topicId, content, accessToken, this.replyId)
-      _initReplyEditor()
+      this._initReplyEditor()
       this.$emit('reloadTopic')
     },
 
     setReplyTarget(replyId, loginname) {
       this.replyId = replyId
-      this.$refs.textEditor.setContent()
+      let userLink = ''
+      if (loginname) { userLink = `@${loginname} ` }
+      this.$refs.textEditor.setContent(userLink)
       return
     }
 

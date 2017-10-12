@@ -13,8 +13,10 @@
                   v-if="this.isUserLogin()"
                   id="reply-editor"
                   :topicId="this.topicId"
-                  @reloadTopic="renderTopicById"></reply-editor>
-    <topic-actions :topic="topic" ref="topicActions"></topic-actions>
+                  @reloadTopic="renderTopicById" ></reply-editor>
+    <topic-actions :topic="topic"
+                   @setEditorFocus="setThisReplyInfoInReplyEditor"
+                   ref="topicActions"></topic-actions>
   </div>
 </template>
 
@@ -66,9 +68,7 @@ export default {
       return
     },
 
-    setThisReplyInfoInReplyEditor(replyId, loginname) {
-      console.log(replyId, loginname)
-      this.$refs.topicActions.moveToReplyEditor()
+    setThisReplyInfoInReplyEditor(replyId = null, loginname = '') {
       this.$refs.replyEditor.setReplyTarget(replyId, loginname)
     }
   }

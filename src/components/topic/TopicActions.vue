@@ -46,7 +46,7 @@ export default {
     async moveToReplyEditor() {
       let accessToken = await UserHelpers.getCurrentAccessToken()
       if (!accessToken) { return }
-      return window.scroll(0,document.body.scrollHeight)
+      this.$emit('setEditorFocus')
     }
   }
 }
