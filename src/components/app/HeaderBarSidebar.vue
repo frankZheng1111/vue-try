@@ -36,6 +36,7 @@ import TAB_TEXTS from '../../config/tabTexts'
 import User from '../../libs/user'
 
 export default {
+  name: 'HeaderBarSidebar',
   props: ['activeSidebar'],
 
   data() {

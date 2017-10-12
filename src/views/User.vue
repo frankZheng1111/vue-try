@@ -2,19 +2,19 @@
   <div class="user-page">
     <div class="user-info">
     </div>
-    <topic-list :topics="userProfile.recentTopics" :loading="false"></topic-list>
-    <topic-list :topics="userProfile.recentReplies" :loading="false"></topic-list>
+    <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
+    <!-- <topic&#45;list :topics="userProfile.recentReplies" :loading="false"></topic&#45;list> -->
   </div>
 </template>
 
 <script>
 'use strict'
 
-import TopicList from '../components/user/TopicList'
+// import TopicList from '../components/user/TopicList'
 import * as api from '../api'
 
 export default {
-  name: 'About',
+  name: 'User',
   data() {
     return {
       loginname: this.$route.params.loginname,
@@ -22,10 +22,9 @@ export default {
     }
   },
 
-  components: {
-    'topic-list': TopicList,
-    'reply-list': ReplyList,
-  },
+  // components: {
+  //   'topic-list': TopicList,
+  // },
 
   created() {
     this.getUserProfile()
