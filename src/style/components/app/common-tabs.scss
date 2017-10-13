@@ -1,0 +1,30 @@
+@import '../../common/color';
+@import '../../common/widget';
+
+.common-tabs {
+  width: 100%;
+  display: flex;
+  font-size: 1em;
+  .common-tab {
+    flex: 1;
+    margin: 0;
+    font-size: 1.6em;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid $lite-grey;
+    background-color: white;
+    color: $purple;
+  }
+  .common-tab:first-of-type {
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+  }
+  .common-tab:last-of-type {
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+  }
+  .common-tab.selected-common-tab {
+    background-color: $blue;
+    color: white;
+  }
+}
+
