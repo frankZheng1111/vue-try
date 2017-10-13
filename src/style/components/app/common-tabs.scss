@@ -24,6 +24,7 @@
   }
   .common-tab.selected-common-tab {
     background-color: $blue;
+    border: 1px solid $blue;
     color: white;
   }
 }
