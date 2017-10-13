@@ -3,14 +3,10 @@
     <div class="user-info">
       <img class="avatar avatar-small" :src="userProfile.avatarUrl" :title="userProfile.loginname"/>
       <div>
-        <p>
-          用户名：
-          {{ userProfile.loginname }}
-        </p>
-        <p>
-          Github：
-          {{ userProfile.githubUsername }}
-        </p>
+        <p>用户名：{{ userProfile.loginname }}</p>
+        <p>Github：{{ userProfile.githubUsername }}</p>
+        <p>注册时间：{{ userCreatedAt }}</p>
+        <p>积分：{{ userProfile.score }}</p>
       </div>
     </div>
     <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
@@ -23,6 +19,7 @@
 
 // import TopicList from '../components/user/TopicList'
 import * as api from '../api'
+import moment from 'moment'
 
 export default {
   name: 'User',
@@ -39,6 +36,12 @@ export default {
 
   created() {
     this.getUserProfile()
+  },
+
+  computed: {
+    userCreatedAt() {
+      return moment(new Date(this.userProfile.createAt)).format('YYYY-MM-DD')
+    }
   },
 
   methods: {
