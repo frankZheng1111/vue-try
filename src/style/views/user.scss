@@ -1,0 +1,19 @@
+@import '../common/color';
+@import '../common/widget';
+
+.user-page {
+  .user-info {
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+    font-weight: 400;
+    padding: 2rem 0 1.5rem 0;
+    background: url(../assets/img/user-background.jpg);
+    .avatar.avatar-small {
+      @include circle-avatar(8rem);
+    }
+    p {
+      margin: 0.6rem;
+    }
+  }
+}

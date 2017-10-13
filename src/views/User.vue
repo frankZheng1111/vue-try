@@ -1,6 +1,17 @@
 <template>
-  <div class="user-page">
+  <div v-if="userProfile" class="user-page">
     <div class="user-info">
+      <img class="avatar avatar-small" :src="userProfile.avatarUrl" :title="userProfile.loginname"/>
+      <div>
+        <p>
+          用户名：
+          {{ userProfile.loginname }}
+        </p>
+        <p>
+          Github：
+          {{ userProfile.githubUsername }}
+        </p>
+      </div>
     </div>
     <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
     <!-- <topic&#45;list :topics="userProfile.recentReplies" :loading="false"></topic&#45;list> -->
@@ -18,7 +29,7 @@ export default {
   data() {
     return {
       loginname: this.$route.params.loginname,
-      userProfile: {}
+      userProfile: null
     }
   },
 
@@ -41,5 +52,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  @import "../style/views/user";
 </style>
