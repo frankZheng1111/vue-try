@@ -9,6 +9,7 @@
         <p>积分：{{ userProfile.score }}</p>
       </div>
     </div>
+    <common-tabs :tabsObject="{ recentReplies: '最近回复主题', recentTopics: '最近创建主题' }" @selectTab="showTab"></common-tabs>
     <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
     <!-- <topic&#45;list :topics="userProfile.recentReplies" :loading="false"></topic&#45;list> -->
   </div>
@@ -17,6 +18,7 @@
 <script>
 'use strict'
 
+import CommonTabs from '../components/app/CommonTabs'
 // import TopicList from '../components/user/TopicList'
 import * as api from '../api'
 import moment from 'moment'
@@ -30,9 +32,10 @@ export default {
     }
   },
 
-  // components: {
-  //   'topic-list': TopicList,
-  // },
+  components: {
+    // 'topic-list': TopicList,
+    'common-tabs': CommonTabs
+  },
 
   created() {
     this.getUserProfile()
@@ -48,6 +51,11 @@ export default {
     async getUserProfile() {
       let { data: { data: userProfile } } = await api.getUserProfile(this.loginname)
       this.userProfile = userProfile
+      return
+    },
+
+    showTab(tab) {
+      console.log(tab)
       return
     }
   }
