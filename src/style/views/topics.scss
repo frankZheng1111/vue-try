@@ -1,7 +1,7 @@
-@import '../common/color';
-
-.loading-placeholder {
-  div {
+.topics-page {
+  text-align: center;
+  .loading-placeholder {
+    display: inline-block;
     margin: 2% auto;
   }
 }

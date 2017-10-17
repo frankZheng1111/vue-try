@@ -1,5 +1,5 @@
 <template>
-  <div v-if="topics.length">
+  <div v-if="topics.length" class="topics-page">
     <topic-list :topics="topics" :loading= "loading" @loadMore="loadMore"></topic-list>
     <mt-spinner class='loading-placeholder' type="fading-circle" color="#26a2ff" :size="50"></mt-spinner>
   </div>
