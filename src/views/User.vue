@@ -12,6 +12,8 @@
     <div class="recent-tabs">
       <common-tabs :tabsObject="{ recentReplies: '最近回复主题', recentTopics: '最近创建主题' }" @selectTab="showTab"></common-tabs>
     </div>
+    <div v-if="recentRepliesTab" class="recent-replies">recentReplies</div>
+    <div v-if="recentTopicsTab" class="recent-topics">recentTopics</div>
     <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
     <!-- <topic&#45;list :topics="userProfile.recentReplies" :loading="false"></topic&#45;list> -->
   </div>
@@ -30,7 +32,8 @@ export default {
   data() {
     return {
       loginname: this.$route.params.loginname,
-      userProfile: null
+      userProfile: null,
+      recentRepliesTab: true
     }
   },
 
@@ -46,6 +49,16 @@ export default {
   computed: {
     userCreatedAt() {
       return moment(new Date(this.userProfile.createAt)).format('YYYY-MM-DD')
+    },
+
+    recentTopicsTab: {
+      get() {
+        return !this.recentRepliesTab
+      },
+
+      set(value) {
+        return this.recentRepliesTab = false
+      }
     }
   },
 
@@ -57,7 +70,8 @@ export default {
     },
 
     showTab(tab) {
-      console.log(tab)
+      if ( tab === 'recentReplies' ) { return this.recentRepliesTab = true }
+      if ( tab === 'recentTopics' ) { return this.recentTopicsTab = true }
       return
     }
   }
