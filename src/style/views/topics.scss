@@ -1,7 +1,9 @@
 .topics-page {
-  text-align: center;
-  .loading-placeholder {
-    display: inline-block;
-    margin: 2% auto;
+  .loading-placeholder-row {
+    text-align: center;
+    .loading-placeholder {
+      display: inline-block;
+      margin: 2% auto;
+    }
   }
 }
