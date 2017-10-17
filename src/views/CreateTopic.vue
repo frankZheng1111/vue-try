@@ -2,9 +2,6 @@
   <div class="create-topic-page">
     <h3>发表一个主题</h3>
     <text-editor @submitContent="submitTopic" ref="textEditor"></text-editor>
-    <div>
-      <button class="back-btn"@click="back">返回社区</button>
-    </div>
   </div>
 </template>
 
@@ -31,6 +28,7 @@ export default {
     },
 
     submitTopic(content) {
+      console.log(content)
     }
   }
 }
