@@ -1,6 +1,5 @@
 <template>
   <div class="create-topic-page">
-    <h3>发表一个主题</h3>
     <text-editor @submitContent="submitTopic" ref="textEditor"></text-editor>
   </div>
 </template>
@@ -35,5 +34,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  // @import "../style/views/about";
+  @import "../style/views/create-topic";
 </style>
