@@ -12,10 +12,16 @@
     <div class="recent-tabs">
       <common-tabs :tabsObject="{ recentReplies: '最近回复主题', recentTopics: '最近创建主题' }" @selectTab="showTab"></common-tabs>
     </div>
-    <div v-if="recentRepliesTab" class="recent-replies">recentReplies</div>
-    <div v-if="recentTopicsTab" class="recent-topics">recentTopics</div>
-    <!-- <topic&#45;list :topics="userProfile.recentTopics" :loading="false"></topic&#45;list> -->
-    <!-- <topic&#45;list :topics="userProfile.recentReplies" :loading="false"></topic&#45;list> -->
+    <div v-if="recentRepliesTab" class="recent-content recent-replies">
+      <user-recent-topic-list v-if="userProfile.recentReplies.length"
+                              :topics="userProfile.recentReplies"></user-recent-topic-list>
+      <p v-else>最近未回复过任何主题</p>
+    </div>
+    <div v-if="recentTopicsTab" class="recent-content recent-topics">
+      <user-recent-topic-list v-if="userProfile.recentTopics.length"
+                              :topics="userProfile.recentTopics"></user-recent-topic-list>
+      <p v-else>最近未回复过任何主题</p>
+    </div>
   </div>
 </template>
 
@@ -23,7 +29,7 @@
 'use strict'
 
 import CommonTabs from '../components/app/CommonTabs'
-// import TopicList from '../components/user/TopicList'
+import UserRecentTopicList from '../components/user/UserRecentTopicList'
 import * as api from '../api'
 import moment from 'moment'
 
@@ -38,7 +44,7 @@ export default {
   },
 
   components: {
-    // 'topic-list': TopicList,
+    'user-recent-topic-list': UserRecentTopicList,
     'common-tabs': CommonTabs
   },
 

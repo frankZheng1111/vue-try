@@ -1,0 +1,52 @@
+@import '../../common/color';
+@import '../../common/widget';
+
+.list {
+  margin-top: 0;
+  padding: 0;
+  li:first-of-type {
+    border-top: 1px solid #ddd;
+  }
+  li {
+    list-style: none;
+    .avatar.avatar-small {
+      @include circle-avatar(2rem);
+      margin-right: 0.5rem;
+    }
+    border-bottom: 1px solid #ddd;
+    padding: 0.6rem 2.5rem;
+    h3 {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      margin-bottom: 0.3rem;
+      .topic-title {
+        font-size: 1.4rem;
+        flex: 1;
+        display:block;
+        color: $purple;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    }
+    .topic-detail-info {
+      display: flex;
+      align-items: center;
+      .detail-info {
+        flex: 1;
+        display: block;
+        color: $deep-blue;
+        font-size: 1.4rem;
+        p {
+          display: flex;
+          justify-content: space-between;
+          .topic-reply-count {
+            color: $blue;
+          }
+          margin: 0;
+        }
+      }
+    }
+  }
+}
