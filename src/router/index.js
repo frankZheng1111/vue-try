@@ -5,6 +5,7 @@ import Topics from '../views/Topics.vue'
 import Topic from '../views/Topic.vue'
 import About from '../views/About.vue'
 import User from '../views/User.vue'
+import CreateTopic from '../views/CreateTopic.vue'
 
 Vue.use(Router)
 
@@ -21,7 +22,7 @@ export default new Router({
     {
       // name属性可以在后续使用这条路径规则的时候，直接引用。
       //
-      path: '/topic/:id',
+      path: '/topics/:id',
       name: 'topic',
       meta: {
         title: '主题'
@@ -29,14 +30,20 @@ export default new Router({
       component: Topic
     },
     {
-      // name属性可以在后续使用这条路径规则的时候，直接引用。
-      //
       path: '/user/:loginname',
       name: 'user',
       meta: {
         title: '个人主页'
       },
       component: User
+    },
+    {
+      path: '/topics/create',
+      name: 'createTopic',
+      meta: {
+        title: '发表主题'
+      },
+      component: CreateTopic
     },
     {
       path: '/about',

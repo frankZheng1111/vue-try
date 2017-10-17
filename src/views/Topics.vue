@@ -5,7 +5,7 @@
       <mt-spinner class="loading-placeholder" type="fading-circle" color="#26a2ff" :size="30"></mt-spinner>
     </div>
     <div class="create-topic-btn-row">
-      <router-link :to="{ name: 'about' }">
+      <router-link :to="{ name: 'createTopic' }">
       <button class="create-topic-btn">+</button>
       </router-link>
     </div>
