@@ -3,13 +3,13 @@
 
 .text-editor {
   width: 100%;
-  padding: 0 1.2rem;
   .text-content {
     resize: none;
     width: 100%;
     margin-bottom: 0.5rem;
     padding: 0.5rem 1rem;
     border: 1px solid $lite-grey;
+    border-radius: 0.4rem;
   }
 
   text-align: right;

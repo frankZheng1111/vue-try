@@ -1,5 +1,7 @@
 <template>
   <div class="create-topic-page">
+    <input class="topic-title"
+           placeholder="标题字数10字以上"></input>
     <text-editor @submitContent="submitTopic" ref="textEditor"></text-editor>
   </div>
 </template>
