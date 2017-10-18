@@ -54,3 +54,20 @@ export function deCollectTopic(topicId, accessToken) {
     data: humps.decamelizeKeys(bodyParams)
   })
 }
+
+export async function createTopic(topic = { title, tab, content }, accessToken) {
+  // 开发过程中tab固定是dev
+  tab = 'dev'
+  if(!title || !tab || !content) { throw new Error('missing params') }
+  let bodyParams = {
+    title: title,
+    tab: tab,
+    content: content,
+    accesstoken: accessToken
+  }
+  return $axios({
+    method: 'post',
+    url: '/topics',
+    data: humps.decamelizeKeys(bodyParams)
+  })
+}
