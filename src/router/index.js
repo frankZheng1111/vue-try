@@ -41,7 +41,7 @@ export default new Router({
       path: '/topics/create',
       name: 'createTopic',
       meta: {
-        title: '发表主题'
+        title: '发布话题'
       },
       component: CreateTopic
     },
