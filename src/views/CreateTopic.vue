@@ -1,5 +1,15 @@
 <template>
   <div class="create-topic-page">
+    <div class="topic-tab-row">
+      选择要发布的版块：
+      <select class="topic-tab" v-model="topicTab">
+        <option disabled value="">请选择</option>
+        <option value="ask">问答</option>
+        <option value="share">分享</option>
+        <option value="job">招聘</option>
+        <option value="dev">测试</option>
+      </select>
+    </div>
     <input class="topic-title"
            placeholder="标题字数10字以上"
            v-model="topicTitle"></input>
@@ -19,7 +29,8 @@ export default {
   name: 'CreateTopic',
   data() {
     return {
-      topicTitle: ''
+      topicTitle: '',
+      topicTab: ''
     }
   },
 
@@ -31,11 +42,13 @@ export default {
     async _validTopic(title, content, tab) {
       if (title.length < 10) { return await MessageBox.alert('标题字数10字以上', '提示信息') }
       if (!content) { return await MessageBox.alert('话题内容不能为空', '提示信息') }
+      if (!tab) { return await MessageBox.alert('必须选择一个发布版块', '提示信息') }
     },
 
     async submitTopic(content) {
-      await this._validTopic(this.topicTitle, content)
+      await this._validTopic(this.topicTitle, content, this.topicTab)
       console.log(this.topicTitle)
+      console.log(this.topicTab)
       console.log(content)
     }
   }

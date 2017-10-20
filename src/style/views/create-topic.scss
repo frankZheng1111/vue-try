@@ -3,6 +3,17 @@
 .create-topic-page {
   padding: 0 1.2rem;
   padding-top: 1.6rem;
+  .topic-tab-row {
+    font-size: 1.2rem;
+    font-weight: 500;
+    .topic-tab {
+      margin-bottom: 1.2rem;
+      border: 1px solid $lite-grey;
+      font-size: 1.2rem;
+      padding: 0.1rem 0.1rem;
+      border-radius: 0.4rem;
+    }
+  }
   .topic-title {
     width: 100%;
     margin-bottom: 1.2rem;
