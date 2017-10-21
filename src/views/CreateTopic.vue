@@ -24,6 +24,7 @@ import { MessageBox } from 'mint-ui'
 
 import TextEditor from '../components/app/TextEditor'
 import * as UserHelpers from '../helpers/user'
+import * as api from '../api'
 
 export default {
   name: 'CreateTopic',
@@ -47,9 +48,13 @@ export default {
 
     async submitTopic(content) {
       await this._validTopic(this.topicTitle, content, this.topicTab)
-      console.log(this.topicTitle)
-      console.log(this.topicTab)
-      console.log(content)
+      let accessToken = await UserHelpers.getCurrentAccessToken()
+      let { data: { topicId } } = await api.createTopic({
+        title: this.topicTitle,
+        tab: this.topicTab,
+        content: content
+      }, accessToken)
+      this.$router.push({ name: 'topic', params: { id: topicId } })
     }
   }
 }
