@@ -7,6 +7,8 @@ import About from '../views/About.vue'
 import User from '../views/User.vue'
 import CreateTopic from '../views/CreateTopic.vue'
 
+import * as UserHelpers from '../helpers/user'
+
 Vue.use(Router)
 
 export default new Router({
@@ -42,6 +44,10 @@ export default new Router({
       name: 'createTopic',
       meta: {
         title: '发布话题'
+      },
+      beforeEnter: async (to, from, next) => {
+        let accessToken = await UserHelpers.getCurrentAccessToken()
+        if (accessToken) { next() }
       },
       component: CreateTopic
     },
