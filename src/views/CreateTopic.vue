@@ -4,10 +4,8 @@
       选择要发布的版块：
       <select class="topic-tab" v-model="topicTab">
         <option disabled value="">请选择</option>
-        <option value="ask">问答</option>
-        <option value="share">分享</option>
-        <option value="job">招聘</option>
-        <option value="dev">测试</option>
+        <option v-for="tabKey in Object.keys(topicTabs)"
+                :value = "tabKey">{{ topicTabs[tabKey] }}</option>
       </select>
     </div>
     <input class="topic-title"
@@ -22,6 +20,7 @@
 
 import { MessageBox } from 'mint-ui'
 
+import TAB_TEXTS from '../config/tabTexts'
 import TextEditor from '../components/app/TextEditor'
 import * as UserHelpers from '../helpers/user'
 import * as api from '../api'
@@ -29,9 +28,13 @@ import * as api from '../api'
 export default {
   name: 'CreateTopic',
   data() {
+    let topicTabs = Object.assign({}, TAB_TEXTS)
+    delete topicTabs['']
+    delete topicTabs.good
     return {
       topicTitle: '',
-      topicTab: ''
+      topicTab: '',
+      topicTabs: topicTabs
     }
   },
 
