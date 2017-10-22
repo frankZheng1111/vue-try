@@ -57,7 +57,7 @@ export function deCollectTopic(topicId, accessToken) {
 
 export async function createTopic({ title, tab, content }, accessToken) {
   // 开发过程中tab固定是dev
-  tab = 'dev'
+  if (process.env.NODE_ENV !== 'prod') { tab = 'dev' }
   if(!title || !tab || !content) { throw new Error('missing params') }
   let bodyParams = {
     title: title,
