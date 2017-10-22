@@ -1,7 +1,9 @@
 <template>
   <div v-if="topic" class="main-topic">
     <section class="topic-info">
-      <img class="avatar avatar-small pull-left" :src="topic.author.avatarUrl" :title="topic.author.loginname"/>
+      <user-entrance :loginName="topic.author.loginname">
+        <img class="avatar avatar-small pull-left" :src="topic.author.avatarUrl" :title="topic.author.loginname"/>
+      </user-entrance>
       <div class="topic-detail">
         <p>
         <span class="author-name" >{{ topic.author.loginname }}</span>
@@ -24,6 +26,7 @@
 
 import { TimeUtil } from '../../libs/utils.js'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
+import UserEntrance from '../app/UserEntrance.vue'
 
 export default {
   name: 'MainTopic',
@@ -32,6 +35,10 @@ export default {
   },
 
   props: ['topic'],
+
+  components: {
+    'user-entrance': UserEntrance
+  },
 
   computed: {
     computedAttrs() {
