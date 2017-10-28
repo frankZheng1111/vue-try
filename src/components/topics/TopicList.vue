@@ -11,7 +11,9 @@
           <div class="topic-title" v-text="topic.title"></div>
         </h3>
         <div class="topic-detail-info">
-          <img class="avatar avatar-small" v-lazy="topic.author.avatarUrl" :title="topic.author.loginname"/>
+          <user-entrance :loginName="topic.author.loginname">
+            <img class="avatar avatar-small" v-lazy="topic.author.avatarUrl" :title="topic.author.loginname"/>
+          </user-entrance>
           <div class="detail-info">
             <p>
               <span class="author-name" v-text="topic.author.loginname" ></span>
@@ -37,6 +39,7 @@
 import Vue from 'vue'
 import { InfiniteScroll } from 'mint-ui'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
+import UserEntrance from '../app/UserEntrance.vue'
 
 Vue.use(InfiniteScroll)
 
@@ -48,6 +51,10 @@ export default {
   },
 
   props: [ 'topics', 'loading' ],
+
+  components: {
+    'user-entrance': UserEntrance
+  },
 
   methods: {
     topicTagText(topic) {

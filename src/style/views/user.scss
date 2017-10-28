@@ -9,6 +9,7 @@
     font-weight: 400;
     padding: 2rem 0 1.5rem 0;
     background: url(../assets/img/user-background.jpg);
+    background-size:cover;
     .avatar.avatar-small {
       @include circle-avatar(8rem);
     }
