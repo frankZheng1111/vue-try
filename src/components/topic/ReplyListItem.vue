@@ -1,7 +1,9 @@
 <template>
   <li :id="reply.id" class="reply">
     <div class="replyer-info">
-      <img class="avatar avatar-small" v-lazy="reply.author.avatarUrl" :title="reply.author.loginname"/>
+      <user-entrance :loginName="reply.author.loginname">
+        <img class="avatar avatar-small" v-lazy="reply.author.avatarUrl" :title="reply.author.loginname"/>
+      </user-entrance>
       <div class="replyer-detail-info">
         <p>
         <span class="replyer.loginname">{{ reply.author.loginname }}</span>
@@ -30,11 +32,16 @@
 import * as api from '../../api'
 import * as UserHelpers from '../../helpers/user'
 import { TimeUtil } from '../../libs/utils'
+import UserEntrance from '../app/UserEntrance.vue'
 
 export default {
   name: 'ReplyListItem',
 
   props: ['reply', 'replyIndex'],
+
+  components: {
+    'user-entrance': UserEntrance
+  },
 
   computed: {
     replyCreatedAt() {
