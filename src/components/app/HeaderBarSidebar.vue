@@ -17,7 +17,10 @@
         </router-link>
       </section>
       <section v-if="isUserLogin()" class="logout">
-        <router-link class="message-btn" :to="{}">消息</router-link>
+        <router-link class="message-btn" :to="{}">
+          消息
+          <span class="message-count">99+</span>
+        </router-link>
         <button class="logout-btn" @click="userLogout">登出</button>
       </section>
       <section class="about">
