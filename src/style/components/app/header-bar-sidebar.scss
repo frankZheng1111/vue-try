@@ -83,17 +83,17 @@
   }
   .message-btn {
     .message-count {
-      border-radius: 50%;
+      border-radius: 36%;
       background-color: red;
-      width: 1.8rem;
-      height: 1.8rem;
+      padding: 0 0.3rem;
+      min-width: 2.2rem;
       position: absolute;
       right: 0.3rem;
-      top: 0.7rem;
+      top: 0.6rem;
       color: white;
       line-height: 2rem;
       text-align: center;
-      font-size: 0.05rem;
+      font-size: 0.1rem;
     }
     position: relative;
     font-weight: 500;
