@@ -5,4 +5,5 @@ import axios from 'axios'
 export * from './topic'
 export * from './user'
 export * from './reply'
+export * from './message'
 
