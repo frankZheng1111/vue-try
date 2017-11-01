@@ -19,7 +19,7 @@
       <section v-if="isUserLogin()" class="logout">
         <router-link class="message-btn" :to="{}">
           消息
-          <span class="message-count">99+</span>
+          <span class="message-count" v-if="newMessageCountStr">{{ newMessageCountStr }}</span>
         </router-link>
         <button class="logout-btn" @click="userLogout">登出</button>
       </section>
@@ -38,6 +38,7 @@ import { MessageBox } from 'mint-ui'
 
 import TAB_TEXTS from '../../config/tabTexts'
 import User from '../../libs/user'
+import * as api from '../../api'
 
 export default {
   name: 'HeaderBarSidebar',
@@ -47,11 +48,29 @@ export default {
     return {
       userBaseLoginInfo: new User().userBaseInfo,
       tabs: ['', 'ask', 'share', 'job', 'good', 'dev'],
-      tabTexts: TAB_TEXTS
+      tabTexts: TAB_TEXTS,
+      newMessageCount: 0
+    }
+  },
+
+  async created() {
+    await this.initMessageCount()
+  },
+
+  computed: {
+    newMessageCountStr() {
+      if (this.newMessageCount <= 99) { return this.newMessageCount }
+      return '99+'
     }
   },
 
   methods: {
+    async initMessageCount() {
+      let accessToken = new User().accessToken
+      let { data: { data: count } } = await api.getMessageCount(accessToken)
+      this.newMessageCount = count
+    },
+
     async _userLogin(accessToken) {
       let user = new User(accessToken)
       if (await user.login()) {
