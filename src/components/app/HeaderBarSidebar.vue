@@ -17,7 +17,7 @@
         </router-link>
       </section>
       <section v-if="isUserLogin()" class="logout">
-        <router-link class="message-btn" :to="{}">
+        <router-link class="message-btn" :to="{}" @click.native="readMessages">
           消息
           <span class="message-count" v-if="newMessageCountStr">{{ newMessageCountStr }}</span>
         </router-link>
@@ -113,6 +113,10 @@ export default {
 
     hideSidebar() {
       this.$emit('hideSidebar')
+    },
+
+    async readMessages() {
+      this.newMessageCount = 0
     }
   }
 }
