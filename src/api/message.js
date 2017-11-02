@@ -17,3 +17,13 @@ export function getMessageCount(accessToken) {
   })
 }
 
+export function getMessages(accessToken) {
+  return $axios({
+    method: 'get',
+    url: '/messages',
+    params: {
+      accesstoken: accessToken
+    }
+  })
+}
+
