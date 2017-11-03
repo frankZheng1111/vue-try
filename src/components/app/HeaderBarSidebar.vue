@@ -74,6 +74,7 @@ export default {
 
   methods: {
     async initMessageCount() {
+      if (!this.isUserLogin()) { return }
       let accessToken = new User().accessToken
       let { data: { data: count } } = await api.getMessageCount(accessToken)
       this.newMessageCount = count
