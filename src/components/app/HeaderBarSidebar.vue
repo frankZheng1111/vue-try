@@ -5,8 +5,10 @@
     </transition>
     <section :class="{ sidebar: true, show: activeSidebar }">
       <section v-if="isUserLogin()" class="user-info">
-        <img class="avatar avatar-small" :src="userBaseLoginInfo.avatarUrl" :title="userBaseLoginInfo.loginname"/>
-        <span>{{ userBaseLoginInfo.loginname }}</span>
+        <user-entrance :loginName="userBaseLoginInfo.loginname" @click.native="hideSidebar">
+          <img class="avatar avatar-small" :src="userBaseLoginInfo.avatarUrl" :title="userBaseLoginInfo.loginname"/>
+          <span>{{ userBaseLoginInfo.loginname }}</span>
+        </user-entrance>
       </section>
       <section v-else class="login">
         <button class="login-btn" @click="showInputTokenForm">登录</button>
@@ -40,9 +42,15 @@ import TAB_TEXTS from '../../config/tabTexts'
 import User from '../../libs/user'
 import * as api from '../../api'
 
+import UserEntrance from '../app/UserEntrance.vue'
+
 export default {
   name: 'HeaderBarSidebar',
   props: ['activeSidebar'],
+
+  components: {
+    'user-entrance': UserEntrance
+  },
 
   data() {
     return {
