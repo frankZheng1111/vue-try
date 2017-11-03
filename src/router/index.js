@@ -5,6 +5,7 @@ import Topics from '../views/Topics.vue'
 import Topic from '../views/Topic.vue'
 import About from '../views/About.vue'
 import User from '../views/User.vue'
+import Messages from '../views/Messages.vue'
 import CreateTopic from '../views/CreateTopic.vue'
 
 import * as UserHelpers from '../helpers/user'
@@ -58,6 +59,14 @@ export default new Router({
         title: '关于'
       },
       component: About
+    },
+    {
+      path: '/messages',
+      name: 'messages',
+      meta: {
+        title: '消息中心'
+      },
+      component: Messages
     },
     { path: '*', redirect: '/topics' }
   ],
