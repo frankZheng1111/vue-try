@@ -20,6 +20,7 @@
       .topic-tab {
         margin:  0.3rem 0.8rem 0 0;
         @include badge-sm;
+        width: 5rem;
       }
       .topic-title {
         font-size: 1.6rem;

@@ -6,7 +6,13 @@
     </div>
     <div class="create-topic-btn-row">
       <router-link :to="{ name: 'createTopic' }">
-      <button class="create-topic-btn">+</button>
+      <button class="create-topic-btn"
+              :class="{ 'in-touch': createBtnInTouch }"
+              @touchstart="startMoveCreateBtn"
+              @touchmove="movingCreateBtn"
+              @touchend="endMoveCreateBtn"
+              :style="`right:${createBtnToRight}px; bottom:${createBtnToBottom}px;`"
+              >+</button>
       </router-link>
     </div>
   </div>
@@ -30,6 +36,9 @@ export default {
     return {
       page: 1,
       loading: false,
+      createBtnInTouch: false,
+      createBtnToRightValue: 0,
+      createBtnToBottomValue: 0,
       topics: [
       ]
     }
@@ -57,6 +66,16 @@ export default {
     this.reRenderTopics()
   },
 
+  computed: {
+    createBtnToRight() {
+      return this.createBtnToRightValue - (this.createBtnInTouch ? (5) : 0)
+    },
+
+    createBtnToBottom() {
+      return this.createBtnToBottomValue - (this.createBtnInTouch ? (5) : 0)
+    }
+  },
+
   methods: {
     async loadMore() {
       if (this.$route.name !== 'topics') { return }
@@ -79,6 +98,27 @@ export default {
       let { data: { data: topics } } = await api.getTopics({ page: page, tab: tab })
       this.topics.push(...topics)
       return
+    },
+
+    startMoveCreateBtn({ targetTouches }) {
+      this.createBtnScreenX = targetTouches[0].screenX
+      this.createBtnScreenY = targetTouches[0].screenY
+      this.createBtnInTouch = true
+    },
+
+    movingCreateBtn({ targetTouches }) {
+      let newCreateBtnScreenX = targetTouches[0].screenX
+      let newCreateBtnScreenY = targetTouches[0].screenY
+      this.createBtnToRightValue -= newCreateBtnScreenX - this.createBtnScreenX
+      this.createBtnToBottomValue -= newCreateBtnScreenY - this.createBtnScreenY
+      this.createBtnScreenX = newCreateBtnScreenX
+      this.createBtnScreenY = newCreateBtnScreenY
+    },
+    
+    endMoveCreateBtn({ targetTouches }) {
+      this.createBtnScreenX = null
+      this.createBtnScreenY = null
+      this.createBtnInTouch = false
     }
   }
 }
