@@ -66,6 +66,10 @@ export default new Router({
       meta: {
         title: '消息中心'
       },
+      beforeEnter: async (to, from, next) => {
+        let accessToken = await UserHelpers.getCurrentAccessToken()
+        if (accessToken) { next() }
+      },
       component: Messages
     },
     { path: '*', redirect: '/topics' }
