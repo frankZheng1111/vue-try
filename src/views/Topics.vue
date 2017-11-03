@@ -100,22 +100,23 @@ export default {
       return
     },
 
-    startMoveCreateBtn({ targetTouches }) {
-      this.createBtnScreenX = targetTouches[0].screenX
-      this.createBtnScreenY = targetTouches[0].screenY
+    startMoveCreateBtn(event) {
+      event.preventDefault()
+      this.createBtnScreenX = event.targetTouches[0].screenX
+      this.createBtnScreenY = event.targetTouches[0].screenY
       this.createBtnInTouch = true
     },
 
-    movingCreateBtn({ targetTouches }) {
-      let newCreateBtnScreenX = targetTouches[0].screenX
-      let newCreateBtnScreenY = targetTouches[0].screenY
+    movingCreateBtn(event) {
+      let newCreateBtnScreenX = event.targetTouches[0].screenX
+      let newCreateBtnScreenY = event.targetTouches[0].screenY
       this.createBtnToRightValue -= newCreateBtnScreenX - this.createBtnScreenX
       this.createBtnToBottomValue -= newCreateBtnScreenY - this.createBtnScreenY
       this.createBtnScreenX = newCreateBtnScreenX
       this.createBtnScreenY = newCreateBtnScreenY
     },
     
-    endMoveCreateBtn({ targetTouches }) {
+    endMoveCreateBtn() {
       this.createBtnScreenX = null
       this.createBtnScreenY = null
       this.createBtnInTouch = false
