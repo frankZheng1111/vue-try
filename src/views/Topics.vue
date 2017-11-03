@@ -101,13 +101,13 @@ export default {
     },
 
     startMoveCreateBtn(event) {
-      event.preventDefault()
       this.createBtnScreenX = event.targetTouches[0].screenX
       this.createBtnScreenY = event.targetTouches[0].screenY
       this.createBtnInTouch = true
     },
 
     movingCreateBtn(event) {
+      event.preventDefault()
       let newCreateBtnScreenX = event.targetTouches[0].screenX
       let newCreateBtnScreenY = event.targetTouches[0].screenY
       this.createBtnToRightValue -= newCreateBtnScreenX - this.createBtnScreenX
