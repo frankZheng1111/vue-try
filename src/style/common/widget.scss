@@ -1,3 +1,5 @@
+@import './color';
+
 @mixin circle-avatar($diameter:100px) {
   border: 1px solid #f3f3f3;
   -moz-border-radius: 50%;
@@ -25,4 +27,5 @@
 
 .good-tag { @include badge-sm; background-color: #e67e22; }
 .top-tag { @include badge-sm; background-color: #f44336; }
+.job-tag { @include badge-sm; background-color: $blue; }
 
