@@ -5,15 +5,16 @@
       <mt-spinner class="loading-placeholder" type="fading-circle" color="#26a2ff" :size="30"></mt-spinner>
     </div>
     <div class="create-topic-btn-row">
-      <router-link :to="{ name: 'createTopic' }">
-      <button class="create-topic-btn"
-              :class="{ 'in-touch': createBtnInTouch }"
-              @touchstart="startMoveCreateBtn"
-              @touchmove="movingCreateBtn"
-              @touchend="endMoveCreateBtn"
-              :style="{ right:`${createBtnToRight}px`, bottom:`${createBtnToBottom}px` }"
-              >+</button>
-      </router-link>
+      <movabale-item>
+        <router-link :to="{ name: 'createTopic' }">
+          <button class="create-topic-btn"
+                  :class="{ 'in-touch': createBtnInTouch }"
+                  @touchstart="startMoveCreateBtn"
+                  @touchmove="movingCreateBtn"
+                  @touchend="endMoveCreateBtn"
+                  >+</button>
+        </router-link>
+      </movabale-item>
     </div>
   </div>
 </template>
@@ -23,6 +24,7 @@
 
 import Vue from 'vue'
 import TopicList from '../components/topics/TopicList'
+import MovableItem from '../components/app/MovableItem'
 import * as api from '../api'
 
 import store from '../store'
@@ -37,8 +39,6 @@ export default {
       page: 1,
       loading: false,
       createBtnInTouch: false,
-      createBtnToRightValue: 0,
-      createBtnToBottomValue: 0,
       topics: [
       ]
     }
@@ -46,6 +46,7 @@ export default {
 
   components: {
     'topic-list': TopicList,
+    'movabale-item': MovableItem
   },
 
   watch: {
@@ -64,26 +65,6 @@ export default {
 
   created() {
     this.reRenderTopics()
-  },
-
-  computed: {
-    createBtnInTouchPositionFix() {
-      return (this.createBtnInTouch ? (5) : 0)
-    },
-
-    createBtnToRight() {
-      let value = this.createBtnToRightValue - this.createBtnInTouchPositionFix
-      let minPosition = 0 - this.createBtnInTouchPositionFix
-      if (value < minPosition) { return minPosition }
-      return value
-    },
-
-    createBtnToBottom() {
-      let value = this.createBtnToBottomValue - this.createBtnInTouchPositionFix
-      let minPosition = 0 - this.createBtnInTouchPositionFix
-      if (value < minPosition) { return minPosition }
-      return value
-    }
   },
 
   methods: {
@@ -111,24 +92,14 @@ export default {
     },
 
     startMoveCreateBtn(event) {
-      this.createBtnScreenX = event.targetTouches[0].screenX
-      this.createBtnScreenY = event.targetTouches[0].screenY
       this.createBtnInTouch = true
     },
 
     movingCreateBtn(event) {
       event.preventDefault()
-      let newCreateBtnScreenX = event.targetTouches[0].screenX
-      let newCreateBtnScreenY = event.targetTouches[0].screenY
-      this.createBtnToRightValue -= newCreateBtnScreenX - this.createBtnScreenX
-      this.createBtnToBottomValue -= newCreateBtnScreenY - this.createBtnScreenY
-      this.createBtnScreenX = newCreateBtnScreenX
-      this.createBtnScreenY = newCreateBtnScreenY
     },
     
     endMoveCreateBtn() {
-      this.createBtnScreenX = null
-      this.createBtnScreenY = null
       this.createBtnInTouch = false
     }
   }
