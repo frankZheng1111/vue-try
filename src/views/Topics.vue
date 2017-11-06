@@ -11,7 +11,7 @@
               @touchstart="startMoveCreateBtn"
               @touchmove="movingCreateBtn"
               @touchend="endMoveCreateBtn"
-              :style="`right:${createBtnToRight}px; bottom:${createBtnToBottom}px;`"
+              :style="{ right:`${createBtnToRight}px`, bottom:`${createBtnToBottom}px` }"
               >+</button>
       </router-link>
     </div>
@@ -67,12 +67,22 @@ export default {
   },
 
   computed: {
+    createBtnInTouchPositionFix() {
+      return (this.createBtnInTouch ? (5) : 0)
+    },
+
     createBtnToRight() {
-      return this.createBtnToRightValue - (this.createBtnInTouch ? (5) : 0)
+      let value = this.createBtnToRightValue - this.createBtnInTouchPositionFix
+      let minPosition = 0 - this.createBtnInTouchPositionFix
+      if (value < minPosition) { return minPosition }
+      return value
     },
 
     createBtnToBottom() {
-      return this.createBtnToBottomValue - (this.createBtnInTouch ? (5) : 0)
+      let value = this.createBtnToBottomValue - this.createBtnInTouchPositionFix
+      let minPosition = 0 - this.createBtnInTouchPositionFix
+      if (value < minPosition) { return minPosition }
+      return value
     }
   },
 
