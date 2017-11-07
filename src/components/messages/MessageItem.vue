@@ -1,13 +1,14 @@
 <template>
   <div v-if="message" class="message-page">
-    <div v-if="isAtType">
-    </div>
-    <div v-if="isReplyType">
+    <div>
       <p>
-        <span>{{ `@${message.author.loginname}` }}</span>
+        <user-entrance :loginName="message.author.loginname">
+          <span>{{ `@${message.author.loginname}` }}</span>
+        </user-entrance>
         <span>在主题</span>
         <span>{{ message.topic.title }}</span>
-        <span>回复了你</span>
+        <span v-if="isReplyType">回复了你</span>
+        <span v-if="isAtType">@了你</span>
         {{ message.createAt }}
       </p>
     </div>
@@ -17,12 +18,18 @@
 <script>
 'use strict'
 
+import UserEntrance from '../app/UserEntrance.vue'
+
 export default {
   name: 'Messages',
   props: {
     message: {
       default: null
     }
+  },
+
+  components: {
+    'user-entrance': UserEntrance
   },
 
   data() {

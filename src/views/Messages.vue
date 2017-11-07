@@ -1,8 +1,8 @@
 <template>
   <div v-if="hasMessages" class="messages-page">
     <div class="messages">
-      <message-item v-for="hasReadMessage in hasReadMessages" :message="hasReadMessage"></message-item>
-      <message-item v-for="hasNotReadMessage in hasNotReadMessages" :message="hasNotReadMessage"></message-item>
+      <message-item v-for="hasReadMessage in hasReadMessages" :message="hasReadMessage":key="hasReadMessage.id"></message-item>
+      <message-item v-for="hasNotReadMessage in hasNotReadMessages" :message="hasNotReadMessage" :key="hasNotReadMessage.id"></message-item>
     </div>
   </div>
 </template>
