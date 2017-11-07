@@ -1,0 +1,33 @@
+@import '../../common/color';
+@import '../../common/widget';
+
+.message-item-page {
+  padding: 0.6rem 1rem;
+  border: 1px solid $lite-grey;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .message-whether-read {
+    display: inline-block;
+    .has-not-read {
+      color: red;
+    }
+  }
+  .message {
+    flex: 1;
+    p {
+      margin: 0.4rem 0;
+    }
+    .topic-info {
+      .topic-title {
+        color: $blue;
+      }
+    }
+    .user-info {
+      .loginname {
+        color: $blue
+      }
+    }
+  }
+}
