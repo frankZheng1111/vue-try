@@ -5,7 +5,12 @@
       <mt-spinner class="loading-placeholder" type="fading-circle" color="#26a2ff" :size="30"></mt-spinner>
     </div>
     <div class="create-topic-btn-row">
-      <movabale-item>
+      <movabale-item :maxMoveDown="0"
+                     :maxMoveUp="screenHeight-120"
+                     :maxMoveLeft="screenWidth-100"
+                     :maxMoveRight="0"
+                     :initToLeft="createBtnInTouchDiff"
+                     :initToTop="createBtnInTouchDiff">
         <router-link :to="{ name: 'createTopic' }">
           <button class="create-topic-btn"
                   :class="{ 'in-touch': createBtnInTouch }"
@@ -65,6 +70,21 @@ export default {
 
   created() {
     this.reRenderTopics()
+  },
+
+  computed: {
+    screenHeight() {
+      return window.screen.height
+    },
+
+    screenWidth() {
+      return window.screen.width
+    },
+
+    createBtnInTouchDiff() {
+      let radiusDiff = 5
+      return this.createBtnInTouch ? 5 : 0
+    }
   },
 
   methods: {

@@ -63,7 +63,7 @@ export default {
     itemToTop() {
       let value = this.toTopValue + this.initToTop
       let maxPosition = 0 + this.initToTop + (this.maxMoveDown || 0)
-      let minPosition = 0 + this.initToTop - (this.maxMoveTop || 0)
+      let minPosition = 0 + this.initToTop - (this.maxMoveUp || 0)
       if (this.maxMoveDown !== null && value > maxPosition) { return maxPosition }
       if (this.maxMoveUp !== null && value < minPosition) { return minPosition }
       return value
