@@ -5,7 +5,7 @@
       infinite-scroll-immediate-check="false"
       infinite-scroll-distance="100">
     <li v-for="topic in topics" :key="topic.id" :id="topic.id" class="topic">
-      <router-link :to="{ name: 'topic', params: { id: topic.id } }">
+      <topic-entrance :id="topic.id">
         <h3 class="topic-title">
           <span :class="`${topicMainTab(topic)}-tag`" class="topic-tab">{{ topicTagText(topic) }}</span>
           <div class="topic-title" v-text="topic.title"></div>
@@ -28,7 +28,7 @@
             </p>
           </div>
         </div>
-      </router-link>
+      </topic-entrance>
     </li>
   </ul>
 </template>
@@ -40,6 +40,7 @@ import Vue from 'vue'
 import { InfiniteScroll } from 'mint-ui'
 import TopicComputedAttr from '../../libs/topicComputedAttr.js'
 import UserEntrance from '../app/UserEntrance.vue'
+import TopicEntrance from '../app/TopicEntrance.vue'
 
 Vue.use(InfiniteScroll)
 
@@ -53,7 +54,8 @@ export default {
   props: [ 'topics', 'loading' ],
 
   components: {
-    'user-entrance': UserEntrance
+    'user-entrance': UserEntrance,
+    'topic-entrance': TopicEntrance
   },
 
   methods: {

@@ -1,26 +1,30 @@
 <template>
   <div v-if="message" class="message-item-page">
-    <div class="message">
-      <p class="topic-info">
-      主题
-      <span class="topic-title">{{ message.topic.title }}</span>
-      中
-      </p>
-      <p class="message-info">
-      <span class="user-info">
-        <user-entrance :loginName="message.author.loginname">
-          <span class="loginname">{{ `@${message.author.loginname}` }}</span>
-        </user-entrance>
-        <span>{{ createTimeFromNow }}</span>
-        <span v-if="isReplyType">回复了你</span>
-        <span v-if="isAtType">@了你</span>
-      </span>
-      </p>
-    </div>
-    <div class="message-whether-read">
-      <span v-if="message.hasRead">已读</span>
-      <span v-else class="has-not-read">未读</span>
-    </div>
+    <topic-entrance :id="message.topic.id">
+      <div class="message-item">
+        <div class="message">
+          <p class="topic-info">
+          主题
+          <span class="topic-title">{{ message.topic.title }}</span>
+          中
+          </p>
+          <p class="message-info">
+          <span class="user-info">
+            <user-entrance :loginName="message.author.loginname">
+              <span class="loginname">{{ `@${message.author.loginname}` }}</span>
+            </user-entrance>
+            <span>{{ createTimeFromNow }}</span>
+            <span v-if="isReplyType">回复了你</span>
+            <span v-if="isAtType">@了你</span>
+          </span>
+          </p>
+        </div>
+        <div class="message-whether-read">
+          <span v-if="message.hasRead">已读</span>
+          <span v-else class="has-not-read">未读</span>
+        </div>
+      </div>
+    </topic-entrance>
   </div>
 </template>
 
@@ -28,6 +32,7 @@
 'use strict'
 
 import UserEntrance from '../app/UserEntrance.vue'
+import TopicEntrance from '../app/TopicEntrance.vue'
 import { TimeUtil } from '../../libs/utils.js'
 
 export default {
@@ -39,7 +44,8 @@ export default {
   },
 
   components: {
-    'user-entrance': UserEntrance
+    'user-entrance': UserEntrance,
+    'topic-entrance': TopicEntrance
   },
 
   data() {
