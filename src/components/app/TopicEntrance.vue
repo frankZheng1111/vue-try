@@ -10,7 +10,7 @@ export default {
   name: 'TopicEntrance',
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true
     }
   }
