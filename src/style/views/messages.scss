@@ -1,0 +1,9 @@
+@import '../common/color.scss';
+@import '../common/widget.scss';
+
+.messages-page {
+  .messages-placeholder {
+    text-align: center;
+    color: $purple;
+  }
+}
