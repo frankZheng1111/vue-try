@@ -1,8 +1,10 @@
 <template>
   <div v-if="hasMessages" class="messages-page">
     <div class="messages">
-      <message-item v-for="hasReadMessage in hasReadMessages" :message="hasReadMessage":key="hasReadMessage.id"></message-item>
+      <p v-if="!hasMessages" class="messages-placeholder has-no-messages-placeholder">您暂时没有未读或已读的信息</p>
+      <p v-else-if="!hasNotReadMessages.length"class="messages-placeholder has-not-read-messages-placeholder">您暂时没有未读的信息</p>
       <message-item v-for="hasNotReadMessage in hasNotReadMessages" :message="hasNotReadMessage" :key="hasNotReadMessage.id"></message-item>
+      <message-item v-if="showHasReadMessages" v-for="hasReadMessage in hasReadMessages" :message="hasReadMessage":key="hasReadMessage.id"></message-item>
     </div>
   </div>
 </template>
@@ -24,7 +26,8 @@ export default {
   data() {
     return {
       hasReadMessages: [],
-      hasNotReadMessages: []
+      hasNotReadMessages: [],
+      showHasReadMessages: false
     }
   },
 
@@ -50,4 +53,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../style/views/messages";
 </style>
